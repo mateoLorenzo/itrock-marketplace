@@ -18,19 +18,43 @@ const SignInScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [showEmailError, setShowEmailError] = useState(false);
-  const [showPasswordError, setShowPasswordError] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const { top } = useSafeAreaInsets();
 
-  // just validate if input has value.
+  const validateEmail = (email: string): string => {
+    if (!email.trim()) {
+      return "Completa este campo para continuar";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return "Ingresa un correo electrónico válido";
+    }
+
+    return "";
+  };
+
+  const validatePassword = (password: string): string => {
+    if (!password.trim()) {
+      return "Completa este campo para continuar";
+    }
+
+    if (password.length < 8) {
+      return "La contraseña debe tener al menos 8 caracteres";
+    }
+
+    return "";
+  };
+
   const validateForm = (): boolean => {
-    const isEmailEmpty = !email.trim();
-    const isPasswordEmpty = !password.trim();
+    const emailValidationError = validateEmail(email);
+    const passwordValidationError = validatePassword(password);
 
-    setShowEmailError(isEmailEmpty);
-    setShowPasswordError(isPasswordEmpty);
+    setEmailError(emailValidationError);
+    setPasswordError(passwordValidationError);
 
-    return isEmailEmpty || isPasswordEmpty;
+    return emailValidationError !== "" || passwordValidationError !== "";
   };
 
   const handleSignIn = () => {
@@ -44,12 +68,12 @@ const SignInScreen = () => {
 
   const onChangeEmail = (text: string) => {
     setEmail(text);
-    if (showEmailError) setShowEmailError(false);
+    if (emailError) setEmailError("");
   };
 
   const onChangePassword = (text: string) => {
     setPassword(text);
-    if (showPasswordError) setShowPasswordError(false);
+    if (passwordError) setPasswordError("");
   };
 
   return (
@@ -68,7 +92,7 @@ const SignInScreen = () => {
             <View style={styles.inputContainer}>
               <Text style={styles.label}>Correo electronico</Text>
               <TextInput
-                style={[styles.input, showEmailError && styles.inputError]}
+                style={[styles.input, emailError && styles.inputError]}
                 placeholder="email@email.com"
                 placeholderTextColor="#BDBDBD"
                 value={email}
@@ -77,10 +101,8 @@ const SignInScreen = () => {
                 autoCapitalize="none"
                 autoCorrect={false}
               />
-              {showEmailError && (
-                <Text style={styles.errorText}>
-                  Completa este campo para continuar
-                </Text>
+              {emailError !== "" && (
+                <Text style={styles.errorText}>{emailError}</Text>
               )}
             </View>
 
@@ -89,7 +111,7 @@ const SignInScreen = () => {
               <View
                 style={[
                   styles.passwordContainer,
-                  showPasswordError && styles.inputError,
+                  passwordError && styles.inputError,
                 ]}
               >
                 <TextInput
@@ -114,19 +136,14 @@ const SignInScreen = () => {
                   />
                 </TouchableOpacity>
               </View>
-              {showPasswordError && (
-                <Text style={styles.errorText}>
-                  Completa este campo para continuar
-                </Text>
+              {passwordError !== "" && (
+                <Text style={styles.errorText}>{passwordError}</Text>
               )}
             </View>
           </View>
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity
-              style={{ ...styles.button }}
-              onPress={handleSignIn}
-            >
+            <TouchableOpacity style={styles.button} onPress={handleSignIn}>
               <Text style={styles.buttonText}>Ingresar</Text>
             </TouchableOpacity>
           </View>
