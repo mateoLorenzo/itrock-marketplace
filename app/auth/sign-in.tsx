@@ -1,3 +1,4 @@
+import { Fonts } from "@/constants/Fonts";
 import { useRouter } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontFamily: "OpenSauceOne-medium",
+    fontFamily: Fonts.medium,
     marginBottom: 20,
   },
   button: {
@@ -45,6 +46,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#E5E5E5",
     fontSize: 16,
-    fontFamily: "OpenSauceOne-medium",
+    fontFamily: Fonts.medium,
   },
 });
