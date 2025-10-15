@@ -11,7 +11,7 @@ const SignInScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text>SignInScreen</Text>
+      <Text style={styles.title}>Iniciar sesión</Text>
       <TouchableOpacity style={styles.button} onPress={handleSignIn}>
         <Text style={styles.buttonText}>Ingresar</Text>
       </TouchableOpacity>
@@ -28,6 +28,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
   },
+  title: {
+    fontSize: 24,
+    fontFamily: "OpenSauceOne-medium",
+    marginBottom: 20,
+  },
   button: {
     backgroundColor: "#171717",
     padding: 20,
@@ -40,5 +45,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#E5E5E5",
     fontSize: 16,
+    fontFamily: "OpenSauceOne-medium",
   },
 });
