@@ -20,7 +20,7 @@ const SignInScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const { top } = useSafeAreaInsets();
+  const { top, bottom } = useSafeAreaInsets();
 
   const validateEmail = (email: string): string => {
     if (!email.trim()) {
@@ -142,11 +142,12 @@ const SignInScreen = () => {
             </View>
           </View>
 
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={handleSignIn}>
-              <Text style={styles.buttonText}>Ingresar</Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity
+            style={{ ...styles.button, bottom: bottom + 10 }}
+            onPress={handleSignIn}
+          >
+            <Text style={styles.buttonText}>Ingresar</Text>
+          </TouchableOpacity>
         </View>
       </TouchableWithoutFeedback>
     </View>
@@ -234,12 +235,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  buttonContainer: {
-    marginTop: "auto",
-    paddingTop: 20,
-  },
   button: {
-    bottom: 30,
     backgroundColor: "#171717",
     height: 64,
     borderRadius: 20,
