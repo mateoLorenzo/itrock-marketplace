@@ -18,10 +18,38 @@ const SignInScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [showEmailError, setShowEmailError] = useState(false);
+  const [showPasswordError, setShowPasswordError] = useState(false);
   const { top } = useSafeAreaInsets();
 
+  // just validate if input has value.
+  const validateForm = (): boolean => {
+    const isEmailEmpty = !email.trim();
+    const isPasswordEmpty = !password.trim();
+
+    setShowEmailError(isEmailEmpty);
+    setShowPasswordError(isPasswordEmpty);
+
+    return isEmailEmpty || isPasswordEmpty;
+  };
+
   const handleSignIn = () => {
+    const formHasErrors = validateForm();
+    if (formHasErrors) {
+      return;
+    }
+
     router.push("/(app)/(tabs)/home");
+  };
+
+  const onChangeEmail = (text: string) => {
+    setEmail(text);
+    if (showEmailError) setShowEmailError(false);
+  };
+
+  const onChangePassword = (text: string) => {
+    setPassword(text);
+    if (showPasswordError) setShowPasswordError(false);
   };
 
   return (
@@ -40,26 +68,36 @@ const SignInScreen = () => {
             <View style={styles.inputContainer}>
               <Text style={styles.label}>Correo electronico</Text>
               <TextInput
-                style={styles.input}
+                style={[styles.input, showEmailError && styles.inputError]}
                 placeholder="email@email.com"
                 placeholderTextColor="#BDBDBD"
                 value={email}
-                onChangeText={setEmail}
+                onChangeText={onChangeEmail}
                 keyboardType="email-address"
                 autoCapitalize="none"
                 autoCorrect={false}
               />
+              {showEmailError && (
+                <Text style={styles.errorText}>
+                  Completa este campo para continuar
+                </Text>
+              )}
             </View>
 
             <View style={styles.inputContainer}>
               <Text style={styles.label}>Contraseña</Text>
-              <View style={styles.passwordContainer}>
+              <View
+                style={[
+                  styles.passwordContainer,
+                  showPasswordError && styles.inputError,
+                ]}
+              >
                 <TextInput
                   style={styles.passwordInput}
                   placeholder="**********"
                   placeholderTextColor="#BDBDBD"
                   value={password}
-                  onChangeText={setPassword}
+                  onChangeText={onChangePassword}
                   secureTextEntry={!showPassword}
                   autoCapitalize="none"
                   autoCorrect={false}
@@ -76,6 +114,11 @@ const SignInScreen = () => {
                   />
                 </TouchableOpacity>
               </View>
+              {showPasswordError && (
+                <Text style={styles.errorText}>
+                  Completa este campo para continuar
+                </Text>
+              )}
             </View>
           </View>
 
@@ -142,6 +185,14 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.regular,
     color: "#171717",
     backgroundColor: "#FFFFFF",
+  },
+  inputError: {
+    borderColor: "#EF4444",
+  },
+  errorText: {
+    fontSize: 12,
+    fontFamily: Fonts.regular,
+    color: "#EF4444",
   },
   passwordContainer: {
     flexDirection: "row",
