@@ -1,6 +1,7 @@
 import { Fonts } from "@/constants/Fonts";
 import { mockProducts } from "@/data/mockData";
 import { Product } from "@/interfaces";
+import { useRouter } from "expo-router";
 import React from "react";
 import {
   Dimensions,
@@ -14,8 +15,13 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const ProductsScreen = () => {
+  const router = useRouter();
   const { top, bottom } = useSafeAreaInsets();
   const tabBarHeight = bottom + 80;
+
+  const onProductPress = () => {
+    router.push("/checkout");
+  };
 
   const renderListHeader = () => (
     <View style={[styles.header, { paddingTop: top + 40 }]}>
@@ -29,7 +35,7 @@ const ProductsScreen = () => {
 
   const renderListItem = ({ item }: { item: Product }) => (
     <View style={styles.productCardContainer}>
-      <TouchableOpacity style={styles.productCard}>
+      <TouchableOpacity style={styles.productCard} onPress={onProductPress}>
         <View style={styles.imageContainer}>
           <Image source={{ uri: item.imageUrl }} style={styles.productImage} />
         </View>
