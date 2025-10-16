@@ -2,7 +2,7 @@ import { Product } from "@/interfaces";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 const PRODUCTS_PER_PAGE = 10;
-const MIN_LOADING_TIME = 5000; // 500ms mínimo de loading
+const MIN_LOADING_TIME = 750; // 750ms mínimo de loading
 const API_URL = "https://api.escuelajs.co/api/v1";
 
 interface FetchProductsParams {
