@@ -63,7 +63,7 @@ const SignInScreen = () => {
     //   return;
     // }
 
-    router.push("/(app)/(tabs)/home");
+    router.replace("/(app)/(tabs)/home");
   };
 
   const onChangeEmail = (text: string) => {

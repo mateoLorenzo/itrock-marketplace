@@ -2,6 +2,7 @@ import { Fonts } from "@/constants/Fonts";
 import { mockReviews } from "@/data/mockData";
 import { Review } from "@/interfaces";
 import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import React from "react";
 import {
   Dimensions,
@@ -14,11 +15,12 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const HomeScreen = () => {
+  const router = useRouter();
   const { top, bottom } = useSafeAreaInsets();
   const tabBarHeight = bottom + 80;
 
   const handleLogout = () => {
-    console.log("Logout pressed");
+    router.replace("/auth/sign-in");
   };
 
   const renderListHeader = () => (

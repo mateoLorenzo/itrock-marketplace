@@ -2,6 +2,7 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import { Platform } from "react-native";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -25,7 +26,14 @@ export default function RootLayout() {
 
   return (
     <Stack>
-      <Stack.Screen name="auth" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="auth"
+        options={{
+          headerShown: false,
+          animation: Platform.OS === "ios" ? "ios_from_left" : "fade",
+          animationDuration: 400,
+        }}
+      />
       <Stack.Screen name="(app)" options={{ headerShown: false }} />
     </Stack>
   );
