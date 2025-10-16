@@ -1,10 +1,11 @@
 import { Fonts } from "@/constants/Fonts";
 import { useAuth } from "@/contexts/AuthContext";
+import { useScroll } from "@/contexts/ScrollContext";
 import { useProducts } from "@/hooks/useProducts";
 import { Product } from "@/interfaces";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import {
   ActivityIndicator,
   Dimensions,
@@ -22,6 +23,8 @@ const ProductsScreen = () => {
   const { state, logout } = useAuth();
   const { top, bottom } = useSafeAreaInsets();
   const tabBarHeight = bottom + 80;
+  const flatListRef = useRef<FlatList>(null);
+  const { scrollToTopRef } = useScroll();
   const {
     data,
     isLoading,
@@ -32,6 +35,18 @@ const ProductsScreen = () => {
   } = useProducts();
 
   const products = data?.pages.flatMap((page) => page) ?? [];
+
+  // scroll to top on products tab press
+  useEffect(() => {
+    const ref = scrollToTopRef.current;
+    ref.products = () => {
+      flatListRef.current?.scrollToOffset({ offset: 0, animated: true });
+    };
+
+    return () => {
+      delete ref.products;
+    };
+  }, [scrollToTopRef]);
 
   const onProductPress = () => {
     router.push("/checkout");
@@ -137,6 +152,7 @@ const ProductsScreen = () => {
   return (
     <View style={styles.container}>
       <FlatList
+        ref={flatListRef}
         data={products}
         ListHeaderComponent={renderListHeader}
         renderItem={renderListItem}

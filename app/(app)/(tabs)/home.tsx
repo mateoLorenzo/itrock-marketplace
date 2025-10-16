@@ -1,10 +1,11 @@
 import reviewsData from "@/assets/feed.json";
 import { Fonts } from "@/constants/Fonts";
 import { useAuth } from "@/contexts/AuthContext";
+import { useScroll } from "@/contexts/ScrollContext";
 import { Review } from "@/interfaces";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import {
   Dimensions,
   FlatList,
@@ -21,6 +22,20 @@ const HomeScreen = () => {
   const { state, logout } = useAuth();
   const { top, bottom } = useSafeAreaInsets();
   const tabBarHeight = bottom + 80;
+  const flatListRef = useRef<FlatList>(null);
+  const { scrollToTopRef } = useScroll();
+
+  // scroll to top on home tab press
+  useEffect(() => {
+    const ref = scrollToTopRef.current;
+    ref.home = () => {
+      flatListRef.current?.scrollToOffset({ offset: 0, animated: true });
+    };
+
+    return () => {
+      delete ref.home;
+    };
+  }, [scrollToTopRef]);
 
   const handleLogout = async () => {
     try {
@@ -108,6 +123,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <FlatList
+        ref={flatListRef}
         data={reviewsData}
         ListHeaderComponent={renderListHeader}
         renderItem={renderListItem}
