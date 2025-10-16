@@ -1,4 +1,4 @@
-import { ArrowBack, Visa } from "@/components/Icon";
+import { Amex, ArrowBack, Card, Mastercard, Visa } from "@/components/Icon";
 import { Fonts } from "@/constants/Fonts";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
@@ -29,6 +29,9 @@ const CheckoutScreen = () => {
   const [cardNumberError, setCardNumberError] = useState("");
   const [expirationError, setExpirationError] = useState("");
   const [cvvError, setCvvError] = useState("");
+  const [cardType, setCardType] = useState<
+    "visa" | "mastercard" | "amex" | null
+  >(null);
 
   const cardNameRef = useRef<TextInput>(null);
   const cardNumberRef = useRef<TextInput>(null);
@@ -55,7 +58,7 @@ const CheckoutScreen = () => {
     }
 
     const cleanNumber = number.replace(/\s/g, "");
-    if (!/^\d{15}$/.test(cleanNumber)) {
+    if (!/^\d{16}$/.test(cleanNumber)) {
       return "Ingresa un número de tarjeta válido";
     }
     return "";
@@ -133,8 +136,45 @@ const CheckoutScreen = () => {
     if (cardNameError) setCardNameError("");
   };
 
+  const detectCardType = (
+    number: string
+  ): "visa" | "mastercard" | "amex" | null => {
+    const cleanNumber = number.replace(/\s/g, "");
+
+    // Visa usualy starts with 4
+    if (/^4/.test(cleanNumber)) {
+      return "visa";
+    }
+
+    // Mastercard usually starts with 5 (51-55) or 2 (2221-2720)
+    if (
+      /^5[1-5]/.test(cleanNumber) ||
+      /^2(?:2(?:2[1-9]|[3-9]\d)|[3-6]\d{2}|7[0-1]\d|720)/.test(cleanNumber)
+    ) {
+      return "mastercard";
+    }
+
+    // American Express usually starts with 34 or 37
+    if (/^3[47]/.test(cleanNumber)) {
+      return "amex";
+    }
+
+    return null;
+  };
+
+  const formatCardNumber = (text: string): string => {
+    const cleanText = text.replace(/\D/g, "");
+    const limitedText = cleanText.substring(0, 16);
+    return limitedText.replace(/(\d{4})(?=\d)/g, "$1 ");
+  };
+
   const onChangeCardNumber = (text: string) => {
-    setCardNumber(text);
+    const formattedText = formatCardNumber(text);
+    const detectedType = detectCardType(formattedText);
+
+    setCardNumber(formattedText);
+    setCardType(detectedType);
+
     if (cardNumberError) setCardNumberError("");
   };
 
@@ -146,6 +186,23 @@ const CheckoutScreen = () => {
   const onChangeCvv = (text: string) => {
     setCvv(text);
     if (cvvError) setCvvError("");
+  };
+
+  const renderCardIcon = () => {
+    switch (cardType) {
+      case "visa":
+        return <Visa width={40} height={40} />;
+      case "mastercard":
+        return <Mastercard width={40} height={40} />;
+      case "amex":
+        return <Amex width={40} height={40} />;
+      default:
+        return (
+          <View style={styles.cardContainer}>
+            <Card width={30} height={30} />
+          </View>
+        );
+    }
   };
 
   return (
@@ -213,9 +270,9 @@ const CheckoutScreen = () => {
                 placeholder="0000 0000 0000 0000"
                 keyboardType="numeric"
               />
-              <View style={styles.visaContainer}>
-                <View style={styles.visaSeparator} />
-                <Visa width={40} height={40} />
+              <View style={styles.cardIconContainer}>
+                <View style={styles.cardIconSeparator} />
+                {renderCardIcon()}
               </View>
             </TouchableOpacity>
             {cardNumberError !== "" && (
@@ -367,7 +424,7 @@ const styles = StyleSheet.create({
   },
   input: {
     fontSize: 16,
-    fontFamily: Fonts.medium,
+    fontFamily: Fonts.regular,
     color: "#171717",
     backgroundColor: "#FFFFFF",
     padding: 0,
@@ -379,7 +436,7 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     marginRight: 12,
   },
-  visaContainer: {
+  cardIconContainer: {
     position: "absolute",
     height: "100%",
     flexDirection: "row",
@@ -387,10 +444,16 @@ const styles = StyleSheet.create({
     gap: 20,
     right: 20,
   },
-  visaSeparator: {
+  cardIconSeparator: {
     width: 1,
     height: "100%",
     backgroundColor: "#707070",
+  },
+  cardContainer: {
+    width: 40,
+    height: 40,
+    justifyContent: "center",
+    alignItems: "center",
   },
   visaText: {
     fontSize: 12,
@@ -407,7 +470,7 @@ const styles = StyleSheet.create({
   checkboxContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginTop: 10,
+    marginTop: 15,
   },
   checkbox: {
     width: 20,
