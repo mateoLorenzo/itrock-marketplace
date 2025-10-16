@@ -178,8 +178,29 @@ const CheckoutScreen = () => {
     if (cardNumberError) setCardNumberError("");
   };
 
+  const formatExpiration = (text: string): string => {
+    if (!text) return "";
+    const cleanText = text.replace(/\D/g, "");
+
+    if (!cleanText) return "";
+    const limitedText = cleanText.substring(0, 4);
+
+    // If has 2 digits, return only the digits without "/"
+    if (limitedText.length === 2) {
+      return limitedText;
+    }
+
+    // If has more than 2 digits, add "/" after the second digit
+    if (limitedText.length > 2) {
+      return limitedText.substring(0, 2) + "/" + limitedText.substring(2);
+    }
+
+    return limitedText;
+  };
+
   const onChangeExpiration = (text: string) => {
-    setExpiration(text);
+    const formattedText = formatExpiration(text);
+    setExpiration(formattedText);
     if (expirationError) setExpirationError("");
   };
 
