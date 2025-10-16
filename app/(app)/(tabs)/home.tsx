@@ -1,4 +1,5 @@
 import reviewsData from "@/assets/feed.json";
+import { AvatarWithSkeleton } from "@/components/AvatarWithSkeleton";
 import { Fonts } from "@/constants/Fonts";
 import { useAuth } from "@/contexts/AuthContext";
 import { useScroll } from "@/contexts/ScrollContext";
@@ -9,7 +10,6 @@ import React, { useEffect, useRef } from "react";
 import {
   Dimensions,
   FlatList,
-  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -71,15 +71,6 @@ const HomeScreen = () => {
     </View>
   );
 
-  const getInitials = (fullName: string) => {
-    return fullName
-      .split(" ")
-      .map((word) => word[0])
-      .join("")
-      .toUpperCase()
-      .slice(0, 2);
-  };
-
   const formatDate = (timestamp: string) => {
     const date = new Date(timestamp);
     const months = [
@@ -105,13 +96,7 @@ const HomeScreen = () => {
 
   const renderListItem = ({ item }: { item: Review }) => (
     <View style={styles.reviewItem}>
-      {item.avatarUrl ? (
-        <Image source={{ uri: item.avatarUrl }} style={styles.avatarImage} />
-      ) : (
-        <View style={styles.avatarContainer}>
-          <Text style={styles.avatarText}>{getInitials(item.fullName)}</Text>
-        </View>
-      )}
+      <AvatarWithSkeleton avatarUrl={item.avatarUrl} fullName={item.fullName} />
       <View style={styles.reviewContent}>
         <Text style={styles.userName}>{item.fullName}</Text>
         <Text style={styles.date}>{formatDate(item.timestamp)}</Text>
@@ -220,27 +205,6 @@ const styles = StyleSheet.create({
   },
   reviewItem: {
     flexDirection: "row",
-  },
-  avatarContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: "#171717",
-    justifyContent: "center",
-    alignItems: "center",
-    marginRight: 12,
-  },
-  avatarImage: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    marginRight: 12,
-    backgroundColor: "#F7F7F5",
-  },
-  avatarText: {
-    fontSize: 14,
-    fontFamily: Fonts.medium,
-    color: "#E5E5E5",
   },
   reviewContent: {
     flex: 1,
