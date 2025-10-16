@@ -221,7 +221,6 @@ const styles = StyleSheet.create({
   },
   inputGroup: {
     marginBottom: 20,
-    height: 88,
     justifyContent: "center",
     borderWidth: 1,
     borderColor: "#707070",
@@ -239,6 +238,9 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.medium,
     color: "#171717",
     backgroundColor: "#FFFFFF",
+    padding: 0,
+    paddingTop: 0,
+    paddingBottom: 0,
   },
   cardNumberInput: {
     flex: 1,
