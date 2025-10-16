@@ -1,6 +1,7 @@
 import { Fonts } from "@/constants/Fonts";
 import { mockProducts } from "@/data/mockData";
 import { Product } from "@/interfaces";
+import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React from "react";
 import {
@@ -23,12 +24,31 @@ const ProductsScreen = () => {
     router.push("/checkout");
   };
 
+  const handleLogout = () => {
+    router.replace("/auth/sign-in");
+  };
+
   const renderListHeader = () => (
-    <View style={[styles.header, { paddingTop: top + 40 }]}>
-      <Text style={styles.title}>Lo último {"\n"}en tecnología</Text>
-      <Text style={styles.subtitle}>
-        Perifericos unicos, al mejor {"\n"}precio del mercado
-      </Text>
+    <View style={{ paddingTop: top + 40 }}>
+      <View style={styles.userInfoContainer}>
+        <Text style={styles.userEmail}>itrock@gmail.com</Text>
+        <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+          <Ionicons
+            name="log-out-outline"
+            style={styles.logoutIcon}
+            size={20}
+            color="#FFFFFF"
+          />
+        </TouchableOpacity>
+      </View>
+      <View style={[styles.header]}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Lo último {"\n"}en tecnología</Text>
+          <Text style={styles.subtitle}>
+            Perifericos unicos, al mejor {"\n"}precio del mercado
+          </Text>
+        </View>
+      </View>
       <View style={styles.headerSeparator} />
     </View>
   );
@@ -73,7 +93,40 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
   },
   header: {
-    paddingBottom: 30,
+    // paddingBottom: 30,
+  },
+  userInfoContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  userEmail: {
+    fontFamily: Fonts.regular,
+    color: "#000000",
+  },
+  logoutButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 100,
+    backgroundColor: "#EF4444",
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  logoutIcon: {
+    transform: [{ rotate: "180deg" }],
+    marginRight: 2,
+  },
+  titleContainer: {
+    flex: 1,
+    marginRight: 16,
   },
   title: {
     fontSize: 32,
@@ -94,6 +147,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#312c2c",
     opacity: 0.1,
     marginTop: 20,
+    marginBottom: 30,
   },
   productsContainer: {
     paddingHorizontal: 20,

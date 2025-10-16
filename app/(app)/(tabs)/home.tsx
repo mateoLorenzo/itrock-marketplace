@@ -24,14 +24,9 @@ const HomeScreen = () => {
   };
 
   const renderListHeader = () => (
-    <View>
-      <View style={[styles.header, { paddingTop: top + 40 }]}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.title}>¡Te damos {"\n"}la bienvenida!</Text>
-          <Text style={styles.subtitle}>
-            Conocé las mejores reseñas {"\n"}de productos premium
-          </Text>
-        </View>
+    <View style={{ paddingTop: top + 40 }}>
+      <View style={styles.userInfoContainer}>
+        <Text style={styles.userEmail}>itrock@gmail.com</Text>
         <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
           <Ionicons
             name="log-out-outline"
@@ -40,6 +35,14 @@ const HomeScreen = () => {
             color="#FFFFFF"
           />
         </TouchableOpacity>
+      </View>
+      <View style={[styles.header]}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>¡Te damos {"\n"}la bienvenida!</Text>
+          <Text style={styles.subtitle}>
+            Conocé las mejores reseñas {"\n"}de productos premium
+          </Text>
+        </View>
       </View>
       <View style={styles.headerSeparator} />
     </View>
@@ -93,6 +96,15 @@ const styles = StyleSheet.create({
   titleContainer: {
     flex: 1,
     marginRight: 16,
+  },
+  userInfoContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  userEmail: {
+    fontFamily: Fonts.regular,
+    color: "#000000",
   },
   title: {
     fontSize: 32,
