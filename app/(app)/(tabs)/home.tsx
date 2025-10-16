@@ -162,7 +162,7 @@ const HomeScreen = () => {
 
   const renderFooter = () => {
     if (!isLoadingMore) {
-      return <View style={{ height: tabBarHeight + 30 }} />;
+      return <View style={{ height: tabBarHeight + 20 }} />;
     }
 
     return (
@@ -188,6 +188,7 @@ const HomeScreen = () => {
         ItemSeparatorComponent={() => <View style={styles.reviewSeparator} />}
         ListFooterComponent={renderFooter}
         onEndReached={loadMoreReviews}
+        onEndReachedThreshold={0.8}
       />
     </View>
   );
@@ -268,7 +269,7 @@ const styles = StyleSheet.create({
   reviewSeparator: {
     height: 1,
     backgroundColor: "#171717",
-    opacity: 0.1,
+    opacity: 0.05,
     marginVertical: 25,
   },
   reviewItem: {
