@@ -5,6 +5,8 @@ import { useRouter } from "expo-router";
 import React, { useRef, useState } from "react";
 import {
   Alert,
+  KeyboardAvoidingView,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -46,122 +48,128 @@ const CheckoutScreen = () => {
   const focusCvv = () => cvvRef.current?.focus();
 
   return (
-    <View style={styles.container}>
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={[
-          styles.scrollContent,
-          { paddingBottom: bottom + 10 },
-        ]}
-        showsVerticalScrollIndicator={false}
-        keyboardShouldPersistTaps="handled"
+    <View style={styles.screenContainer}>
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 20 : 20}
       >
-        <View style={[styles.header, { paddingTop: top + 20 }]}>
-          <TouchableOpacity style={styles.backButton} onPress={handleBack}>
-            <ArrowBack width={40} height={40} />
-          </TouchableOpacity>
-          <Text style={styles.title}>Agregá un {"\n"}metodo de pago</Text>
-          <Text style={styles.subtitle}>
-            Ingresa los datos de tu tarjeta para {"\n"}finalizar la compra
-          </Text>
-        </View>
-
-        <View style={styles.form}>
-          <TouchableOpacity
-            style={styles.inputGroup}
-            onPress={focusCardName}
-            activeOpacity={1}
-          >
-            <Text style={styles.inputLabel}>Nombre en la tarjeta</Text>
-            <TextInput
-              ref={cardNameRef}
-              style={styles.input}
-              value={cardName}
-              onChangeText={setCardName}
-              placeholder="Nombre completo"
-            />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.inputGroup}
-            onPress={focusCardNumber}
-            activeOpacity={1}
-          >
-            <Text style={styles.inputLabel}>Número de tarjeta</Text>
-            <TextInput
-              ref={cardNumberRef}
-              style={[styles.input, styles.cardNumberInput]}
-              value={cardNumber}
-              onChangeText={setCardNumber}
-              placeholder="0000 0000 0000 0000"
-              keyboardType="numeric"
-            />
-            <View style={styles.visaContainer}>
-              <View style={styles.visaSeparator} />
-              <Visa width={40} height={40} />
-            </View>
-          </TouchableOpacity>
-
-          <View style={styles.rowContainer}>
-            <TouchableOpacity
-              style={[styles.inputGroup, styles.halfWidth]}
-              onPress={focusExpiration}
-              activeOpacity={1}
-            >
-              <Text style={styles.inputLabel}>Vencimiento</Text>
-              <TextInput
-                ref={expirationRef}
-                style={styles.input}
-                value={expiration}
-                onChangeText={setExpiration}
-                placeholder="00/00"
-                keyboardType="numeric"
-                maxLength={5}
-              />
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={[
+            styles.scrollContent,
+            { paddingBottom: bottom + 10 },
+          ]}
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled"
+        >
+          <View style={[styles.header, { paddingTop: top + 20 }]}>
+            <TouchableOpacity style={styles.backButton} onPress={handleBack}>
+              <ArrowBack width={40} height={40} />
             </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.inputGroup, styles.halfWidth]}
-              onPress={focusCvv}
-              activeOpacity={1}
-            >
-              <Text style={styles.inputLabel}>Código</Text>
-              <TextInput
-                ref={cvvRef}
-                style={styles.input}
-                value={cvv}
-                onChangeText={setCvv}
-                placeholder="CVV"
-                keyboardType="numeric"
-                maxLength={4}
-                secureTextEntry
-              />
-            </TouchableOpacity>
+            <Text style={styles.title}>Agregá un {"\n"}metodo de pago</Text>
+            <Text style={styles.subtitle}>
+              Ingresa los datos de tu tarjeta para {"\n"}finalizar la compra
+            </Text>
           </View>
 
+          <View style={styles.form}>
+            <TouchableOpacity
+              style={styles.inputGroup}
+              onPress={focusCardName}
+              activeOpacity={1}
+            >
+              <Text style={styles.inputLabel}>Nombre en la tarjeta</Text>
+              <TextInput
+                ref={cardNameRef}
+                style={styles.input}
+                value={cardName}
+                onChangeText={setCardName}
+                placeholder="Nombre completo"
+              />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.inputGroup}
+              onPress={focusCardNumber}
+              activeOpacity={1}
+            >
+              <Text style={styles.inputLabel}>Número de tarjeta</Text>
+              <TextInput
+                ref={cardNumberRef}
+                style={[styles.input, styles.cardNumberInput]}
+                value={cardNumber}
+                onChangeText={setCardNumber}
+                placeholder="0000 0000 0000 0000"
+                keyboardType="numeric"
+              />
+              <View style={styles.visaContainer}>
+                <View style={styles.visaSeparator} />
+                <Visa width={40} height={40} />
+              </View>
+            </TouchableOpacity>
+
+            <View style={styles.rowContainer}>
+              <TouchableOpacity
+                style={[styles.inputGroup, styles.halfWidth]}
+                onPress={focusExpiration}
+                activeOpacity={1}
+              >
+                <Text style={styles.inputLabel}>Vencimiento</Text>
+                <TextInput
+                  ref={expirationRef}
+                  style={styles.input}
+                  value={expiration}
+                  onChangeText={setExpiration}
+                  placeholder="00/00"
+                  keyboardType="numeric"
+                  maxLength={5}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.inputGroup, styles.halfWidth]}
+                onPress={focusCvv}
+                activeOpacity={1}
+              >
+                <Text style={styles.inputLabel}>Código</Text>
+                <TextInput
+                  ref={cvvRef}
+                  style={styles.input}
+                  value={cvv}
+                  onChangeText={setCvv}
+                  placeholder="CVV"
+                  keyboardType="numeric"
+                  maxLength={4}
+                  secureTextEntry
+                />
+              </TouchableOpacity>
+            </View>
+
+            <TouchableOpacity
+              style={styles.checkboxContainer}
+              onPress={() => setSavePaymentMethod(!savePaymentMethod)}
+              activeOpacity={0.4}
+            >
+              <View style={styles.checkbox}>
+                {savePaymentMethod && (
+                  <Ionicons name="checkmark" size={16} color="#171717" />
+                )}
+              </View>
+              <Text style={styles.checkboxText}>Guardar metodo de pago</Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+        <View style={[styles.buttonContainer]}>
           <TouchableOpacity
-            style={styles.checkboxContainer}
-            onPress={() => setSavePaymentMethod(!savePaymentMethod)}
+            style={styles.finalizeButton}
+            onPress={handleFinalizePurchase}
             activeOpacity={0.4}
           >
-            <View style={styles.checkbox}>
-              {savePaymentMethod && (
-                <Ionicons name="checkmark" size={16} color="#171717" />
-              )}
-            </View>
-            <Text style={styles.checkboxText}>Guardar metodo de pago</Text>
+            <Text style={styles.finalizeButtonText}>Finalizar compra</Text>
           </TouchableOpacity>
         </View>
-      </ScrollView>
-
-      <View style={[styles.buttonContainer, { paddingBottom: bottom }]}>
-        <TouchableOpacity
-          style={styles.finalizeButton}
-          onPress={handleFinalizePurchase}
-          activeOpacity={0.4}
-        >
-          <Text style={styles.finalizeButtonText}>Finalizar compra</Text>
-        </TouchableOpacity>
-      </View>
+      </KeyboardAvoidingView>
+      <View style={{ height: bottom }} />
     </View>
   );
 };
@@ -169,9 +177,12 @@ const CheckoutScreen = () => {
 export default CheckoutScreen;
 
 const styles = StyleSheet.create({
-  container: {
+  screenContainer: {
     flex: 1,
     backgroundColor: "#FFFFFF",
+  },
+  container: {
+    flex: 1,
   },
   scrollView: {
     flex: 1,
@@ -282,7 +293,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     paddingHorizontal: 20,
-    paddingTop: 20,
   },
   finalizeButton: {
     backgroundColor: "#171717",

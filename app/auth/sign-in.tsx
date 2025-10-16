@@ -58,10 +58,10 @@ const SignInScreen = () => {
   };
 
   const handleSignIn = () => {
-    const formHasErrors = validateForm();
-    if (formHasErrors) {
-      return;
-    }
+    // const formHasErrors = validateForm();
+    // if (formHasErrors) {
+    //   return;
+    // }
 
     router.push("/(app)/(tabs)/home");
   };
