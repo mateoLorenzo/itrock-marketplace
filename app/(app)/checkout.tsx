@@ -2,7 +2,7 @@ import { ArrowBack, Visa } from "@/components/Icon";
 import { Fonts } from "@/constants/Fonts";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Alert,
   ScrollView,
@@ -23,6 +23,11 @@ const CheckoutScreen = () => {
   const [cvv, setCvv] = useState("");
   const [savePaymentMethod, setSavePaymentMethod] = useState(false);
 
+  const cardNameRef = useRef<TextInput>(null);
+  const cardNumberRef = useRef<TextInput>(null);
+  const expirationRef = useRef<TextInput>(null);
+  const cvvRef = useRef<TextInput>(null);
+
   const handleBack = () => {
     router.back();
   };
@@ -35,6 +40,11 @@ const CheckoutScreen = () => {
     Alert.alert("Éxito", "Compra finalizada correctamente");
   };
 
+  const focusCardName = () => cardNameRef.current?.focus();
+  const focusCardNumber = () => cardNumberRef.current?.focus();
+  const focusExpiration = () => expirationRef.current?.focus();
+  const focusCvv = () => cvvRef.current?.focus();
+
   return (
     <View style={styles.container}>
       <ScrollView
@@ -44,6 +54,7 @@ const CheckoutScreen = () => {
           { paddingBottom: bottom + 10 },
         ]}
         showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
       >
         <View style={[styles.header, { paddingTop: top + 20 }]}>
           <TouchableOpacity style={styles.backButton} onPress={handleBack}>
@@ -56,19 +67,29 @@ const CheckoutScreen = () => {
         </View>
 
         <View style={styles.form}>
-          <View style={styles.inputGroup}>
+          <TouchableOpacity
+            style={styles.inputGroup}
+            onPress={focusCardName}
+            activeOpacity={1}
+          >
             <Text style={styles.inputLabel}>Nombre en la tarjeta</Text>
             <TextInput
+              ref={cardNameRef}
               style={styles.input}
               value={cardName}
               onChangeText={setCardName}
               placeholder="Nombre completo"
             />
-          </View>
+          </TouchableOpacity>
 
-          <View style={styles.inputGroup}>
+          <TouchableOpacity
+            style={styles.inputGroup}
+            onPress={focusCardNumber}
+            activeOpacity={1}
+          >
             <Text style={styles.inputLabel}>Número de tarjeta</Text>
             <TextInput
+              ref={cardNumberRef}
               style={[styles.input, styles.cardNumberInput]}
               value={cardNumber}
               onChangeText={setCardNumber}
@@ -79,12 +100,17 @@ const CheckoutScreen = () => {
               <View style={styles.visaSeparator} />
               <Visa width={40} height={40} />
             </View>
-          </View>
+          </TouchableOpacity>
 
           <View style={styles.rowContainer}>
-            <View style={[styles.inputGroup, styles.halfWidth]}>
+            <TouchableOpacity
+              style={[styles.inputGroup, styles.halfWidth]}
+              onPress={focusExpiration}
+              activeOpacity={1}
+            >
               <Text style={styles.inputLabel}>Vencimiento</Text>
               <TextInput
+                ref={expirationRef}
                 style={styles.input}
                 value={expiration}
                 onChangeText={setExpiration}
@@ -92,10 +118,15 @@ const CheckoutScreen = () => {
                 keyboardType="numeric"
                 maxLength={5}
               />
-            </View>
-            <View style={[styles.inputGroup, styles.halfWidth]}>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.inputGroup, styles.halfWidth]}
+              onPress={focusCvv}
+              activeOpacity={1}
+            >
               <Text style={styles.inputLabel}>Código</Text>
               <TextInput
+                ref={cvvRef}
                 style={styles.input}
                 value={cvv}
                 onChangeText={setCvv}
@@ -104,7 +135,7 @@ const CheckoutScreen = () => {
                 maxLength={4}
                 secureTextEntry
               />
-            </View>
+            </TouchableOpacity>
           </View>
 
           <TouchableOpacity
