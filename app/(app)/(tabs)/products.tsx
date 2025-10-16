@@ -8,6 +8,7 @@ import { useRouter } from "expo-router";
 import React, { useEffect, useRef } from "react";
 import {
   ActivityIndicator,
+  Animated,
   Dimensions,
   FlatList,
   Image,
@@ -35,6 +36,12 @@ const ProductsScreen = () => {
   } = useProducts();
 
   const products = data?.pages.flatMap((page) => page) ?? [];
+  const skeletonOpacity = useRef(new Animated.Value(0.3)).current;
+
+  // skeleton data for loading state (10 items)
+  const skeletonData = isLoading
+    ? Array.from({ length: 10 }, (_, i) => ({ id: `skeleton-${i}` }))
+    : [];
 
   // scroll to top on products tab press
   useEffect(() => {
@@ -47,6 +54,27 @@ const ProductsScreen = () => {
       delete ref.products;
     };
   }, [scrollToTopRef]);
+
+  useEffect(() => {
+    if (isLoading) {
+      const animation = Animated.loop(
+        Animated.sequence([
+          Animated.timing(skeletonOpacity, {
+            toValue: 1,
+            duration: 800,
+            useNativeDriver: true,
+          }),
+          Animated.timing(skeletonOpacity, {
+            toValue: 0.3,
+            duration: 800,
+            useNativeDriver: true,
+          }),
+        ])
+      );
+      animation.start();
+      return () => animation.stop();
+    }
+  }, [isLoading, skeletonOpacity]);
 
   const onProductPress = () => {
     router.push("/checkout");
@@ -126,16 +154,31 @@ const ProductsScreen = () => {
     }
   };
 
-  if (isLoading) {
-    return (
-      <View style={styles.container}>
-        <View style={styles.centerContainer}>
-          <ActivityIndicator size="large" color="#171717" />
-          <Text style={styles.loadingText}>Cargando productos...</Text>
+  const renderSkeletonItem = () => (
+    <View style={styles.productCardContainer}>
+      <View style={styles.productCard}>
+        <View style={styles.imageContainer}>
+          <Animated.View
+            style={[styles.skeletonImage, { opacity: skeletonOpacity }]}
+          />
         </View>
       </View>
-    );
-  }
+      <Animated.View
+        style={[styles.skeletonText, { opacity: skeletonOpacity }]}
+      />
+      <Animated.View
+        style={[styles.skeletonPrice, { opacity: skeletonOpacity }]}
+      />
+    </View>
+  );
+
+  // if loading, render skeleton, otherwise render product
+  const renderDynamicItem = ({ item }: { item: any }) => {
+    if (isLoading && item.id?.startsWith("skeleton-")) {
+      return renderSkeletonItem();
+    }
+    return renderListItem({ item });
+  };
 
   if (isError) {
     return (
@@ -153,9 +196,9 @@ const ProductsScreen = () => {
     <View style={styles.container}>
       <FlatList
         ref={flatListRef}
-        data={products}
+        data={isLoading ? skeletonData : products}
         ListHeaderComponent={renderListHeader}
-        renderItem={renderListItem}
+        renderItem={renderDynamicItem}
         numColumns={2}
         columnWrapperStyle={styles.row}
         showsVerticalScrollIndicator={false}
@@ -163,7 +206,7 @@ const ProductsScreen = () => {
         contentContainerStyle={styles.productsContainer}
         ItemSeparatorComponent={() => <View style={styles.itemSeparator} />}
         ListFooterComponent={renderFooter}
-        onEndReached={handleLoadMore}
+        onEndReached={isLoading ? undefined : handleLoadMore}
         onEndReachedThreshold={0.5}
       />
     </View>
@@ -310,5 +353,24 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: Fonts.regular,
     color: "#757575",
+  },
+  skeletonImage: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#E5E5E5",
+    borderRadius: 12,
+  },
+  skeletonText: {
+    height: 16,
+    backgroundColor: "#E5E5E5",
+    borderRadius: 4,
+    marginBottom: 4,
+    width: "80%",
+  },
+  skeletonPrice: {
+    height: 14,
+    width: 60,
+    backgroundColor: "#E5E5E5",
+    borderRadius: 4,
   },
 });
