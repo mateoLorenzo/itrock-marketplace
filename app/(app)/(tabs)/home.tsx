@@ -4,6 +4,7 @@ import { Review } from "@/interfaces";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import {
+  Dimensions,
   FlatList,
   StyleSheet,
   Text,
@@ -20,21 +21,8 @@ const HomeScreen = () => {
     console.log("Logout pressed");
   };
 
-  const renderReviewItem = ({ item }: { item: Review }) => (
-    <View style={styles.reviewItem}>
-      <View style={styles.avatarContainer}>
-        <Text style={styles.avatarText}>{item.initials}</Text>
-      </View>
-      <View style={styles.reviewContent}>
-        <Text style={styles.userName}>{item.user}</Text>
-        <Text style={styles.date}>{item.date}</Text>
-        <Text style={styles.reviewText}>{item.text}</Text>
-      </View>
-    </View>
-  );
-
-  return (
-    <View style={styles.container}>
+  const renderListHeader = () => (
+    <View>
       <View style={[styles.header, { paddingTop: top + 40 }]}>
         <View style={styles.titleContainer}>
           <Text style={styles.title}>¡Te damos {"\n"}la bienvenida!</Text>
@@ -51,12 +39,29 @@ const HomeScreen = () => {
           />
         </TouchableOpacity>
       </View>
-
       <View style={styles.headerSeparator} />
+    </View>
+  );
 
+  const renderListItem = ({ item }: { item: Review }) => (
+    <View style={styles.reviewItem}>
+      <View style={styles.avatarContainer}>
+        <Text style={styles.avatarText}>{item.initials}</Text>
+      </View>
+      <View style={styles.reviewContent}>
+        <Text style={styles.userName}>{item.user}</Text>
+        <Text style={styles.date}>{item.date}</Text>
+        <Text style={styles.reviewText}>{item.text}</Text>
+      </View>
+    </View>
+  );
+
+  return (
+    <View style={styles.container}>
       <FlatList
         data={mockReviews}
-        renderItem={renderReviewItem}
+        ListHeaderComponent={renderListHeader}
+        renderItem={renderListItem}
         keyExtractor={(item) => item.id.toString()}
         style={styles.reviewsContainer}
         showsVerticalScrollIndicator={false}
@@ -81,7 +86,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    paddingHorizontal: 20,
     paddingBottom: 20,
   },
   titleContainer: {
@@ -121,17 +125,18 @@ const styles = StyleSheet.create({
     marginRight: 2,
   },
   headerSeparator: {
-    width: "100%",
     height: 1,
     backgroundColor: "#171717",
     opacity: 0.1,
+    marginBottom: 30,
+    width: Dimensions.get("window").width,
+    right: 20,
   },
   reviewsContainer: {
     flex: 1,
   },
   flatListContent: {
     paddingHorizontal: 20,
-    paddingTop: 30,
   },
   reviewSeparator: {
     height: 1,
