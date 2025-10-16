@@ -1,4 +1,5 @@
 import { AuthProvider } from "@/contexts/AuthContext";
+import { QueryProvider } from "@/contexts/QueryProvider";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -26,18 +27,20 @@ export default function RootLayout() {
   }
 
   return (
-    <AuthProvider>
-      <Stack>
-        <Stack.Screen
-          name="auth"
-          options={{
-            headerShown: false,
-            animation: Platform.OS === "ios" ? "ios_from_left" : "fade",
-            animationDuration: 400,
-          }}
-        />
-        <Stack.Screen name="(app)" options={{ headerShown: false }} />
-      </Stack>
-    </AuthProvider>
+    <QueryProvider>
+      <AuthProvider>
+        <Stack>
+          <Stack.Screen
+            name="auth"
+            options={{
+              headerShown: false,
+              animation: Platform.OS === "ios" ? "ios_from_left" : "fade",
+              animationDuration: 400,
+            }}
+          />
+          <Stack.Screen name="(app)" options={{ headerShown: false }} />
+        </Stack>
+      </AuthProvider>
+    </QueryProvider>
   );
 }

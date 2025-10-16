@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "user": "Valentina Gómez",
+    "initials": "VG",
+    "date": "15 Octubre 18:42hs",
+    "text": "Compré los Beoplay H95 y la cancelación de ruido es simplemente perfecta. La calidad del sonido supera a cualquier otro auricular que tuve."
+  },
+  {
+    "id": 2,
+    "user": "Julián Torres",
+    "initials": "JT",
+    "date": "15 Octubre 09:12hs",
+    "text": "El Beosound A1 me sorprendió por su tamaño, suena muy fuerte y con bajos potentes. Ideal para viajes."
+  },
+  {
+    "id": 3,
+    "user": "Lucía Fernández",
+    "initials": "LF",
+    "date": "14 Octubre 23:10hs",
+    "text": "Compré el Beoplay EQ para usar en oficina. Son cómodos pero me hubiera gustado más autonomía de batería."
+  },
+  {
+    "id": 4,
+    "user": "Martín Álvarez",
+    "initials": "MA",
+    "date": "14 Octubre 17:45hs",
+    "text": "El Beosound Explore es muy resistente. Lo usé en un camping con lluvia y sigue como nuevo."
+  },
+  {
+    "id": 5,
+    "user": "Carla Duarte",
+    "initials": "CD",
+    "date": "14 Octubre 11:27hs",
+    "text": "Excelente atención postventa. Tuve un problema con el cable USB-C del A9 y me lo reemplazaron enseguida."
+  },
+  {
+    "id": 6,
+    "user": "Tomás Ortega",
+    "initials": "TO",
+    "date": "13 Octubre 21:54hs",
+    "text": "Beoplay HX: el sonido es envolvente y muy equilibrado, pero el ajuste en la cabeza podría ser más firme."
+  },
+  {
+    "id": 7,
+    "user": "Nicolás Rojas",
+    "initials": "NR",
+    "date": "13 Octubre 19:31hs",
+    "text": "Compré el Beosound Level para el living. La calidad del diseño y el audio es impresionante, aunque el precio es alto."
+  },
+  {
+    "id": 8,
+    "user": "Camila Vera",
+    "initials": "CV",
+    "date": "13 Octubre 15:10hs",
+    "text": "El Beoplay Portal para Xbox es una joya. Micrófono claro, sonido espacial real. Lo recomiendo para gamers exigentes."
+  },
+  {
+    "id": 9,
+    "user": "Pablo Sánchez",
+    "initials": "PS",
+    "date": "13 Octubre 09:20hs",
+    "text": "Beosound Stage con mi tele LG se escucha increíble, pero me costó un poco configurarla al principio."
+  },
+  {
+    "id": 10,
+    "user": "Florencia Medina",
+    "initials": "FM",
+    "date": "12 Octubre 22:38hs",
+    "text": "Los Beoplay EX tienen un look premium. Los uso para entrenar y nunca se me caen. Buen balance entre agudos y bajos."
+  },
+  {
+    "id": 11,
+    "user": "Andrés Pérez",
+    "initials": "AP",
+    "date": "12 Octubre 19:20hs",
+    "text": "El Beolit 20 tiene una potencia tremenda. En exteriores mantiene una calidad de audio impecable."
+  },
+  {
+    "id": 12,
+    "user": "María López",
+    "initials": "ML",
+    "date": "12 Octubre 15:02hs",
+    "text": "Compre el Beosound A5 para mi oficina. El diseño escandinavo se roba todas las miradas, suena limpio y natural."
+  },
+  {
+    "id": 13,
+    "user": "Gonzalo Herrera",
+    "initials": "GH",
+    "date": "12 Octubre 11:45hs",
+    "text": "Beoplay E8 Sport: cómodos, livianos y no se mueven al correr. Buen aislamiento de ruido."
+  },
+  {
+    "id": 14,
+    "user": "Natalia Ruiz",
+    "initials": "NR",
+    "date": "12 Octubre 09:11hs",
+    "text": "El Beosound Balance tiene una presencia visual impresionante. El sonido 360° llena la habitación sin distorsionar."
+  },
+  {
+    "id": 15,
+    "user": "Lucas Cabrera",
+    "initials": "LC",
+    "date": "11 Octubre 21:44hs",
+    "text": "Beoplay HX: batería eterna. Lo cargué hace una semana y todavía marca 60%."
+  },
+  {
+    "id": 16,
+    "user": "Sofía Acosta",
+    "initials": "SA",
+    "date": "11 Octubre 19:22hs",
+    "text": "El Beosound Level tiene un sonido nítido, pero no me gusta que use conector magnético propietario."
+  },
+  {
+    "id": 17,
+    "user": "Ignacio Paredes",
+    "initials": "IP",
+    "date": "11 Octubre 13:55hs",
+    "text": "Compre el A9 para mi estudio, y es literalmente una obra de arte. Cada vez que viene alguien lo nota."
+  },
+  {
+    "id": 18,
+    "user": "Brenda Domínguez",
+    "initials": "BD",
+    "date": "11 Octubre 09:40hs",
+    "text": "Los Beoplay H9 suenan muy bien, aunque el material de las almohadillas se calienta después de un rato."
+  },
+  {
+    "id": 19,
+    "user": "Felipe Mena",
+    "initials": "FM",
+    "date": "10 Octubre 23:05hs",
+    "text": "El Beosound A1 lo uso en la pileta. La conexión Bluetooth es estable y resiste el agua sin problemas."
+  },
+  {
+    "id": 20,
+    "user": "Julieta Coria",
+    "initials": "JC",
+    "date": "10 Octubre 20:31hs",
+    "text": "Beoplay Portal versión PC: excelentes para reuniones y música. Los micrófonos cancelan ruido de fondo muy bien."
+  },
+  {
+    "id": 21,
+    "user": "Agustín Silva",
+    "initials": "AS",
+    "date": "10 Octubre 17:02hs",
+    "text": "El Beosound Balance vale cada centavo. Graves profundos sin perder detalle en las voces."
+  },
+  {
+    "id": 22,
+    "user": "Manuela Gaitán",
+    "initials": "MG",
+    "date": "10 Octubre 15:40hs",
+    "text": "Compré el Beolit 20 en color antracita. Hermoso diseño, pero algo pesado para llevar en mochila."
+  },
+  {
+    "id": 23,
+    "user": "Rodrigo Vega",
+    "initials": "RV",
+    "date": "10 Octubre 12:18hs",
+    "text": "Beoplay EX: conexión instantánea con iPhone, pero el modo transparencia podría ser más natural."
+  },
+  {
+    "id": 24,
+    "user": "Emilia Costa",
+    "initials": "EC",
+    "date": "10 Octubre 09:07hs",
+    "text": "El Beosound Stage mejora muchísimo el audio de mi televisor. Voces claras y bajos potentes."
+  },
+  {
+    "id": 25,
+    "user": "David Luna",
+    "initials": "DL",
+    "date": "09 Octubre 22:45hs",
+    "text": "Beoplay H95: materiales premium, se nota en cada detalle. El estuche rígido es excelente."
+  },
+  {
+    "id": 26,
+    "user": "Renata Salas",
+    "initials": "RS",
+    "date": "09 Octubre 20:20hs",
+    "text": "El Beosound Explore aguanta golpes y agua, lo usé en montaña. Muy buena compra."
+  },
+  {
+    "id": 27,
+    "user": "Tomás Vidal",
+    "initials": "TV",
+    "date": "09 Octubre 17:12hs",
+    "text": "Beoplay E8 Sport: me gusta el sonido, pero el estuche de carga se raya fácil."
+  },
+  {
+    "id": 28,
+    "user": "Milagros Pérez",
+    "initials": "MP",
+    "date": "09 Octubre 15:55hs",
+    "text": "Beolit 20: el mejor altavoz Bluetooth que probé. Llenó una habitación grande sin distorsionar."
+  },
+  {
+    "id": 29,
+    "user": "Franco Castillo",
+    "initials": "FC",
+    "date": "09 Octubre 12:41hs",
+    "text": "Compré el cable USB-C original y se nota la diferencia en la velocidad de carga del A1."
+  },
+  {
+    "id": 30,
+    "user": "Paula Navarro",
+    "initials": "PN",
+    "date": "09 Octubre 09:30hs",
+    "text": "El Beoplay Portal es hermoso, pero me costó emparejarlo con la PS5 al principio."
+  },
+  {
+    "id": 31,
+    "user": "Ricardo López",
+    "initials": "RL",
+    "date": "08 Octubre 22:48hs",
+    "text": "Beoplay HX: ecualización muy natural, ideal para mezclar música. La app es intuitiva."
+  },
+  {
+    "id": 32,
+    "user": "Carolina Núñez",
+    "initials": "CN",
+    "date": "08 Octubre 19:33hs",
+    "text": "El A5 me encantó, pero la base de carga inalámbrica debería venir incluida."
+  },
+  {
+    "id": 33,
+    "user": "Diego Morales",
+    "initials": "DM",
+    "date": "08 Octubre 17:11hs",
+    "text": "Beosound A1 2da gen: excelente mejora respecto a la anterior. Micrófono y batería más potentes."
+  },
+  {
+    "id": 34,
+    "user": "Andrea Torres",
+    "initials": "AT",
+    "date": "08 Octubre 14:25hs",
+    "text": "Beoplay EQ: se sienten premium, aunque el estuche podría ser más resistente."
+  },
+  {
+    "id": 35,
+    "user": "Leonel Farias",
+    "initials": "LF",
+    "date": "08 Octubre 10:40hs",
+    "text": "El Beosound Level tiene sonido cálido, ideal para jazz y acústico. Se nota el trabajo artesanal."
+  },
+  {
+    "id": 36,
+    "user": "Sabrina Molina",
+    "initials": "SM",
+    "date": "08 Octubre 09:05hs",
+    "text": "Beosound Stage: increíble experiencia de cine en casa. Los bajos son profundos y controlados."
+  },
+  {
+    "id": 37,
+    "user": "Juan Martín Peña",
+    "initials": "JP",
+    "date": "07 Octubre 22:20hs",
+    "text": "Compré los H95 recondicionados y llegaron como nuevos. Sonido impecable y cero fallas."
+  },
+  {
+    "id": 38,
+    "user": "Ezequiel Bravo",
+    "initials": "EB",
+    "date": "07 Octubre 20:18hs",
+    "text": "Beolit 20: la autonomía real me dio 6 horas a volumen alto, menos de lo anunciado."
+  },
+  {
+    "id": 39,
+    "user": "Lara Campos",
+    "initials": "LC",
+    "date": "07 Octubre 17:42hs",
+    "text": "Beoplay EX: perfectos para reuniones, el micrófono capta muy bien la voz sin ruidos."
+  },
+  {
+    "id": 40,
+    "user": "Mateo Lorenzo",
+    "initials": "ML",
+    "date": "07 Octubre 13:11hs",
+    "text": "Probé casi todos los parlantes Bang & Olufsen y el A5 es mi favorito. Potencia, claridad y diseño espectacular."
+  }
+]

@@ -1,6 +1,6 @@
+import reviewsData from "@/assets/feed.json";
 import { Fonts } from "@/constants/Fonts";
 import { useAuth } from "@/contexts/AuthContext";
-import { mockReviews } from "@/data/mockData";
 import { Review } from "@/interfaces";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
@@ -71,7 +71,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={mockReviews}
+        data={reviewsData}
         ListHeaderComponent={renderListHeader}
         renderItem={renderListItem}
         keyExtractor={(item) => item.id.toString()}

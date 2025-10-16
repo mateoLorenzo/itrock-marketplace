@@ -1,11 +1,12 @@
 import { Fonts } from "@/constants/Fonts";
 import { useAuth } from "@/contexts/AuthContext";
-import { mockProducts } from "@/data/mockData";
+import { useProducts } from "@/hooks/useProducts";
 import { Product } from "@/interfaces";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React from "react";
 import {
+  ActivityIndicator,
   Dimensions,
   FlatList,
   Image,
@@ -21,6 +22,16 @@ const ProductsScreen = () => {
   const { state, logout } = useAuth();
   const { top, bottom } = useSafeAreaInsets();
   const tabBarHeight = bottom + 80;
+  const {
+    data,
+    isLoading,
+    isError,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useProducts();
+
+  const products = data?.pages.flatMap((page) => page) ?? [];
 
   const onProductPress = () => {
     router.push("/checkout");
@@ -48,11 +59,14 @@ const ProductsScreen = () => {
           />
         </TouchableOpacity>
       </View>
-      <View style={[styles.header]}>
+      <View>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>Lo último {"\n"}en tecnología</Text>
+          <Text style={styles.title}>
+            Explorá las
+            {"\n"}últimas tendencias
+          </Text>
           <Text style={styles.subtitle}>
-            Perifericos unicos, al mejor {"\n"}precio del mercado
+            Estilo unico y calidad, al mejor {"\n"}precio del mercado
           </Text>
         </View>
       </View>
@@ -64,18 +78,66 @@ const ProductsScreen = () => {
     <View style={styles.productCardContainer}>
       <TouchableOpacity style={styles.productCard} onPress={onProductPress}>
         <View style={styles.imageContainer}>
-          <Image source={{ uri: item.imageUrl }} style={styles.productImage} />
+          <Image
+            source={{ uri: item?.images?.[0] }}
+            resizeMode="cover"
+            style={styles.productImage}
+          />
         </View>
       </TouchableOpacity>
-      <Text style={styles.productName}>{item.name}</Text>
-      <Text style={styles.productPrice}>{item.price}</Text>
+      <Text style={styles.productName} numberOfLines={2}>
+        {item?.title}
+      </Text>
+      <Text style={styles.productPrice}>${item?.price?.toFixed(2)}</Text>
     </View>
   );
+
+  const renderFooter = () => {
+    if (!isFetchingNextPage) {
+      return <View style={{ height: tabBarHeight + 30 }} />;
+    }
+
+    return (
+      <View style={{ ...styles.footerLoader, marginBottom: tabBarHeight }}>
+        <ActivityIndicator size="small" color="#171717" />
+        <Text style={styles.footerLoaderText}>Cargando más productos...</Text>
+      </View>
+    );
+  };
+
+  const handleLoadMore = () => {
+    if (hasNextPage && !isFetchingNextPage) {
+      fetchNextPage();
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <View style={styles.container}>
+        <View style={styles.centerContainer}>
+          <ActivityIndicator size="large" color="#171717" />
+          <Text style={styles.loadingText}>Cargando productos...</Text>
+        </View>
+      </View>
+    );
+  }
+
+  if (isError) {
+    return (
+      <View style={styles.container}>
+        <View style={styles.centerContainer}>
+          <Ionicons name="warning-outline" size={48} color="#EF4444" />
+          <Text style={styles.errorText}>Error al cargar productos</Text>
+          <Text style={styles.errorSubtext}>Por favor, intenta nuevamente</Text>
+        </View>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={mockProducts}
+        data={products}
         ListHeaderComponent={renderListHeader}
         renderItem={renderListItem}
         numColumns={2}
@@ -84,9 +146,9 @@ const ProductsScreen = () => {
         keyExtractor={(item) => item.id.toString()}
         contentContainerStyle={styles.productsContainer}
         ItemSeparatorComponent={() => <View style={styles.itemSeparator} />}
-        ListFooterComponent={() => (
-          <View style={{ height: tabBarHeight + 30 }} />
-        )}
+        ListFooterComponent={renderFooter}
+        onEndReached={handleLoadMore}
+        onEndReachedThreshold={0.5}
       />
     </View>
   );
@@ -99,8 +161,29 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFFFFF",
   },
-  header: {
-    // paddingBottom: 30,
+  centerContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 20,
+  },
+  loadingText: {
+    marginTop: 16,
+    fontSize: 16,
+    fontFamily: Fonts.regular,
+    color: "#757575",
+  },
+  errorText: {
+    marginTop: 16,
+    fontSize: 18,
+    fontFamily: Fonts.semiBold,
+    color: "#171717",
+  },
+  errorSubtext: {
+    marginTop: 8,
+    fontSize: 14,
+    fontFamily: Fonts.regular,
+    color: "#757575",
   },
   userInfoContainer: {
     flexDirection: "row",
@@ -172,10 +255,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#F7F7F5",
     borderRadius: 20,
     marginBottom: 15,
+    height: 160,
+    overflow: "hidden",
   },
   imageContainer: {
     width: "100%",
-    height: 160,
+    height: "100%",
+    borderRadius: 20,
     marginBottom: 12,
     justifyContent: "center",
     alignItems: "center",
@@ -183,20 +269,30 @@ const styles = StyleSheet.create({
   productImage: {
     width: "100%",
     height: "100%",
-    resizeMode: "contain",
   },
   productName: {
     fontSize: 16,
-    fontFamily: Fonts.semiBold,
+    fontFamily: Fonts.medium,
     color: "#171717",
     marginBottom: 4,
   },
   productPrice: {
     fontSize: 14,
-    fontFamily: Fonts.medium,
+    fontFamily: Fonts.regular,
     color: "#171717",
   },
   listFooter: {
     height: 30,
+  },
+  footerLoader: {
+    paddingVertical: 20,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  footerLoaderText: {
+    marginTop: 8,
+    fontSize: 14,
+    fontFamily: Fonts.regular,
+    color: "#757575",
   },
 });
