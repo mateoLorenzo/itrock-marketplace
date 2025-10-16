@@ -1,3 +1,4 @@
+import { ProductImageWithSkeleton } from "@/components/ProductImageWithSkeleton";
 import { Fonts } from "@/constants/Fonts";
 import { useAuth } from "@/contexts/AuthContext";
 import { useScroll } from "@/contexts/ScrollContext";
@@ -11,7 +12,6 @@ import {
   Animated,
   Dimensions,
   FlatList,
-  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -120,13 +120,7 @@ const ProductsScreen = () => {
   const renderListItem = ({ item }: { item: Product }) => (
     <View style={styles.productCardContainer}>
       <TouchableOpacity style={styles.productCard} onPress={onProductPress}>
-        <View style={styles.imageContainer}>
-          <Image
-            source={{ uri: item?.images?.[0] }}
-            resizeMode="cover"
-            style={styles.productImage}
-          />
-        </View>
+        <ProductImageWithSkeleton imageUrl={item?.images?.[0]} />
       </TouchableOpacity>
       <Text style={styles.productName} numberOfLines={2}>
         {item?.title}
@@ -157,11 +151,9 @@ const ProductsScreen = () => {
   const renderSkeletonItem = () => (
     <View style={styles.productCardContainer}>
       <View style={styles.productCard}>
-        <View style={styles.imageContainer}>
-          <Animated.View
-            style={[styles.skeletonImage, { opacity: skeletonOpacity }]}
-          />
-        </View>
+        <Animated.View
+          style={[styles.skeletonImage, { opacity: skeletonOpacity }]}
+        />
       </View>
       <Animated.View
         style={[styles.skeletonText, { opacity: skeletonOpacity }]}
@@ -316,18 +308,6 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     height: 160,
     overflow: "hidden",
-  },
-  imageContainer: {
-    width: "100%",
-    height: "100%",
-    borderRadius: 20,
-    marginBottom: 12,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  productImage: {
-    width: "100%",
-    height: "100%",
   },
   productName: {
     fontSize: 16,
