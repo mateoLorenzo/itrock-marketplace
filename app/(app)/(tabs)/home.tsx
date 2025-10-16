@@ -12,7 +12,8 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const HomeScreen = () => {
-  const { top } = useSafeAreaInsets();
+  const { top, bottom } = useSafeAreaInsets();
+  const tabBarHeight = bottom + 80;
 
   const handleLogout = () => {
     console.log("Logout pressed");
@@ -60,7 +61,9 @@ const HomeScreen = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.flatListContent}
         ItemSeparatorComponent={() => <View style={styles.reviewSeparator} />}
-        ListFooterComponent={() => <View style={styles.listFooter} />}
+        ListFooterComponent={() => (
+          <View style={{ height: tabBarHeight + 30 }} />
+        )}
       />
     </View>
   );
@@ -172,8 +175,5 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.regular,
     color: "#171717",
     lineHeight: 20,
-  },
-  listFooter: {
-    height: 30,
   },
 });

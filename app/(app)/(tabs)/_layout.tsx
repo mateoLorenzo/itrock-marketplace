@@ -5,27 +5,42 @@ import {
   ProductsInactive,
 } from "@/components/Icon";
 import { Fonts } from "@/constants/Fonts";
+import { BlurView } from "expo-blur";
 import { Tabs } from "expo-router";
-import { Text } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function TabLayout() {
   const { bottom } = useSafeAreaInsets();
+  const tabBarHeight = 80 + bottom;
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: "#171717",
         tabBarInactiveTintColor: "#9E9E9E",
         tabBarStyle: {
-          minHeight: 80 + bottom,
-          backgroundColor: "#ffffff",
+          minHeight: tabBarHeight,
+          backgroundColor: "transparent",
           justifyContent: "center",
           alignItems: "center",
           paddingTop: 15,
           paddingBottom: 20,
           borderTopWidth: 1,
-          borderTopColor: "#00000010",
+          borderTopColor: "rgba(0, 0, 0, 0.1)",
+          position: "absolute",
+          elevation: 0,
+          shadowOpacity: 0,
         },
+        tabBarBackground: () => (
+          <BlurView
+            intensity={6}
+            tint="light"
+            style={[
+              StyleSheet.absoluteFillObject,
+              { backgroundColor: "rgba(255, 255, 255, 0.75)" },
+            ]}
+          />
+        ),
         tabBarLabelStyle: {
           fontFamily: Fonts.regular,
           fontSize: 12,
