@@ -59,6 +59,8 @@ const HomeScreen = () => {
         style={styles.reviewsContainer}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.flatListContent}
+        ItemSeparatorComponent={() => <View style={styles.reviewSeparator} />}
+        ListFooterComponent={() => <View style={styles.listFooter} />}
       />
     </View>
   );
@@ -127,12 +129,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 30,
   },
+  reviewSeparator: {
+    height: 1,
+    backgroundColor: "#171717",
+    opacity: 0.1,
+    marginVertical: 25,
+  },
   reviewItem: {
     flexDirection: "row",
-    marginBottom: 24,
-    paddingBottom: 24,
-    borderBottomWidth: 1,
-    borderBottomColor: "#F5F5F5",
   },
   avatarContainer: {
     width: 40,
@@ -168,5 +172,8 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.regular,
     color: "#171717",
     lineHeight: 20,
+  },
+  listFooter: {
+    height: 30,
   },
 });
