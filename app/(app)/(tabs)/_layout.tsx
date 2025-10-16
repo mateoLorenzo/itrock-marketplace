@@ -6,6 +6,7 @@ import {
 } from "@/components/Icon";
 import { Fonts } from "@/constants/Fonts";
 import { Tabs } from "expo-router";
+import { Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function TabLayout() {
@@ -16,7 +17,7 @@ export default function TabLayout() {
         tabBarActiveTintColor: "#171717",
         tabBarInactiveTintColor: "#9E9E9E",
         tabBarStyle: {
-          minHeight: 75 + bottom,
+          minHeight: 80 + bottom,
           backgroundColor: "#ffffff",
           justifyContent: "center",
           alignItems: "center",
@@ -37,6 +38,18 @@ export default function TabLayout() {
         name="home"
         options={{
           title: "Inicio",
+          tabBarLabel: ({ focused, children }) => (
+            <Text
+              style={{
+                fontFamily: focused ? Fonts.medium : Fonts.regular,
+                fontSize: 12,
+                marginTop: 10,
+                color: "#171717",
+              }}
+            >
+              {children}
+            </Text>
+          ),
           tabBarIcon: ({ focused }) =>
             focused ? <HomeActive /> : <HomeInactive />,
         }}
@@ -45,6 +58,18 @@ export default function TabLayout() {
         name="products"
         options={{
           title: "Productos",
+          tabBarLabel: ({ focused, children }) => (
+            <Text
+              style={{
+                fontFamily: focused ? Fonts.medium : Fonts.regular,
+                fontSize: 12,
+                marginTop: 10,
+                color: "#171717",
+              }}
+            >
+              {children}
+            </Text>
+          ),
           tabBarIcon: ({ focused }) =>
             focused ? <ProductsActive /> : <ProductsInactive />,
         }}
