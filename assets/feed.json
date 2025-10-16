@@ -278,5 +278,285 @@
     "avatarUrl": "https://avatar.iran.liara.run/public",
     "timestamp": "2025-10-07T13:11:00Z",
     "comment": "Probé varios parlantes inteligentes y este es mi favorito. Potencia, claridad de audio y diseño minimalista espectacular. Vale cada peso."
+  },
+  {
+    "id": "c41",
+    "fullName": "Catalina Ríos",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-07T10:25:00Z",
+    "comment": "El mouse pad XXL es enorme y tiene una superficie muy suave. Perfecto para gaming, aunque los bordes se levantan un poco con el tiempo."
+  },
+  {
+    "id": "c42",
+    "fullName": "Sebastián Ramos",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-06T23:15:00Z",
+    "comment": "La cafetera smart es genial. Puedo programarla desde el celular y tiene el café listo cuando me despierto. La limpieza es muy fácil."
+  },
+  {
+    "id": "c43",
+    "fullName": "Valentina Cruz",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-06T20:50:00Z",
+    "comment": "El termo Stanley mantiene el café caliente por más de 8 horas. Es resistente y el diseño es súper práctico para llevar a todos lados."
+  },
+  {
+    "id": "c44",
+    "fullName": "Maximiliano Paz",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-06T18:30:00Z",
+    "comment": "Compré la almohada ergonómica de memoria y mejoró mi calidad de sueño. Es firme pero cómoda, ideal para quienes duermen de lado."
+  },
+  {
+    "id": "c45",
+    "fullName": "Isabella Mendoza",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-06T15:12:00Z",
+    "comment": "El ring light para fotos tiene varios niveles de intensidad. Es perfecto para selfies y videollamadas, aunque el trípode es un poco endeble."
+  },
+  {
+    "id": "c46",
+    "fullName": "Benjamín Vargas",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-06T12:40:00Z",
+    "comment": "La funda para Nintendo Switch protege perfecto. Tiene espacio para cartuchos y accesorios. El material se siente premium y duradero."
+  },
+  {
+    "id": "c47",
+    "fullName": "Julieta Márquez",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-06T09:55:00Z",
+    "comment": "El ventilador portátil USB es súper práctico para el verano. Lo uso en la oficina y apenas hace ruido. La batería dura todo el día."
+  },
+  {
+    "id": "c48",
+    "fullName": "Santiago Palacios",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-05T22:18:00Z",
+    "comment": "La tablet Samsung Galaxy Tab S9 es increíble para dibujar. El S Pen no tiene lag y la pantalla OLED muestra colores vibrantes y precisos."
+  },
+  {
+    "id": "c49",
+    "fullName": "Martina Guerrero",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-05T19:45:00Z",
+    "comment": "Los guantes térmicos con touch son perfectos para el invierno. Puedo usar el celular sin quitármelos, aunque la sensibilidad podría mejorar."
+  },
+  {
+    "id": "c50",
+    "fullName": "Gabriel Suárez",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-05T17:20:00Z",
+    "comment": "El proyector portátil 1080p supera mis expectativas. Perfecto para ver películas en casa, aunque le falta un poco de brillo en ambientes muy iluminados."
+  },
+  {
+    "id": "c51",
+    "fullName": "Agustina Flores",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-05T14:35:00Z",
+    "comment": "La bandolera de lona es resistente y tiene compartimentos perfectos. La uso todos los días para la universidad y se mantiene como nueva."
+  },
+  {
+    "id": "c52",
+    "fullName": "Thiago Giménez",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-05T11:50:00Z",
+    "comment": "El soporte para celular magnético del auto es muy práctico. Se adhiere firme y no se cae ni en caminos con baches o curvas cerradas."
+  },
+  {
+    "id": "c53",
+    "fullName": "Rocío Benítez",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-05T09:10:00Z",
+    "comment": "Las pantuflas memory foam son las más cómodas que probé. Perfectas para estar en casa todo el día, aunque se ensucian fácilmente."
+  },
+  {
+    "id": "c54",
+    "fullName": "Facundo Castro",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-04T23:25:00Z",
+    "comment": "El cargador solar portátil es genial para acampar. Carga bastante rápido con sol directo, pero en días nublados es muy lento."
+  },
+  {
+    "id": "c55",
+    "fullName": "Malena Soto",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-04T20:40:00Z",
+    "comment": "La licuadora smart tiene potencia increíble. Hace smoothies perfectos y se limpia fácil. La app con recetas es un gran plus."
+  },
+  {
+    "id": "c56",
+    "fullName": "Ramiro Ibarra",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-04T18:15:00Z",
+    "comment": "El tapete de yoga antideslizante es grueso y cómodo. Lo uso todos los días y no se deforma. El material ecológico es un punto a favor."
+  },
+  {
+    "id": "c57",
+    "fullName": "Delfina Romero",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-04T15:30:00Z",
+    "comment": "La báscula inteligente sincroniza perfecto con mi celular. Mide peso, grasa corporal y masa muscular. Los datos son muy precisos."
+  },
+  {
+    "id": "c58",
+    "fullName": "Joaquín Robles",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-04T12:45:00Z",
+    "comment": "El adaptador USB-C a HDMI funciona perfecto para presentaciones. Transmite 4K sin lag, aunque se calienta un poco con uso prolongado."
+  },
+  {
+    "id": "c59",
+    "fullName": "Candela Iglesias",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-04T10:00:00Z",
+    "comment": "Las cortinas blackout son excelentes para dormir. Bloquean 100% de la luz y el material es grueso y de calidad. Llegaron rápido."
+  },
+  {
+    "id": "c60",
+    "fullName": "Dante Prieto",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-03T23:10:00Z",
+    "comment": "El joystick PS5 DualSense tiene una respuesta háptica increíble. La batería dura bastante y se siente premium en las manos."
+  },
+  {
+    "id": "c61",
+    "fullName": "Bianca Aguilar",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-03T20:30:00Z",
+    "comment": "La planchita de pelo de cerámica calienta rápido y deja el pelo súper liso. El cable giratorio es muy práctico y no se enreda."
+  },
+  {
+    "id": "c62",
+    "fullName": "Lorenzo Guzmán",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-03T17:55:00Z",
+    "comment": "El estuche para AirPods Pro es resistente y protege perfecto. El diseño minimalista es elegante, aunque el mosquetón podría ser más fuerte."
+  },
+  {
+    "id": "c63",
+    "fullName": "Abril Méndez",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-03T15:20:00Z",
+    "comment": "La lámpara de escritorio LED con carga inalámbrica es súper práctica. Tiene varios modos de luz y carga el celular mientras trabajo."
+  },
+  {
+    "id": "c64",
+    "fullName": "Matías Cardoso",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-03T12:35:00Z",
+    "comment": "El kit de herramientas para celulares es completo y de buena calidad. Lo usé para cambiar la batería de mi iPhone sin problemas."
+  },
+  {
+    "id": "c65",
+    "fullName": "Micaela Gutiérrez",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-03T09:50:00Z",
+    "comment": "La botella de agua inteligente me recuerda tomar agua durante el día. La app es simple y la botella mantiene la temperatura por horas."
+  },
+  {
+    "id": "c66",
+    "fullName": "Bautista Figueroa",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-02T23:05:00Z",
+    "comment": "El diffuser de aromas con luz LED crea un ambiente perfecto. Los aceites esenciales incluidos huelen increíble y dura toda la noche."
+  },
+  {
+    "id": "c67",
+    "fullName": "Josefina Peralta",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-02T20:20:00Z",
+    "comment": "La funda para laptop impermeable protege perfecto. Tiene compartimentos para cables y accesorios. El acolchado es grueso y seguro."
+  },
+  {
+    "id": "c68",
+    "fullName": "Lautaro Cabral",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-02T17:45:00Z",
+    "comment": "El gimbal para celular estabiliza increíble. Perfecto para vlogs y videos en movimiento, aunque la app podría tener más funciones."
+  },
+  {
+    "id": "c69",
+    "fullName": "Pilar Zamora",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-02T15:10:00Z",
+    "comment": "Las luces LED para bicicleta son muy potentes. Se ven de lejos y tienen varios modos de luz. La batería dura varias semanas."
+  },
+  {
+    "id": "c70",
+    "fullName": "Esteban Herrera",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-02T12:25:00Z",
+    "comment": "El hub USB-C 7 en 1 es exactamente lo que necesitaba. Todos los puertos funcionan perfecto y el diseño de aluminio es premium."
+  },
+  {
+    "id": "c71",
+    "fullName": "Jazmín Pereyra",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-02T09:40:00Z",
+    "comment": "La manta térmica eléctrica es súper cálida y tiene control de temperatura. Perfecta para el invierno, aunque el cable podría ser más largo."
+  },
+  {
+    "id": "c72",
+    "fullName": "Bruno Medina",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-01T23:55:00Z",
+    "comment": "El trípode flexible para celular se adapta a cualquier superficie. Lo uso para fotos y timelapses. Es compacto y fácil de transportar."
+  },
+  {
+    "id": "c73",
+    "fullName": "Alma Rosales",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-01T21:10:00Z",
+    "comment": "La masajeadora eléctrica de cuello relaja increíble después del trabajo. Tiene varios niveles de intensidad y función de calor."
+  },
+  {
+    "id": "c74",
+    "fullName": "Tobías Navarro",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-01T18:25:00Z",
+    "comment": "El organizador de cables es súper útil. Mantiene mi escritorio ordenado y los cables no se enredan. El adhesivo se pega muy bien."
+  },
+  {
+    "id": "c75",
+    "fullName": "Luna Delgado",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-01T15:40:00Z",
+    "comment": "La cámara de seguridad WiFi tiene excelente calidad de imagen. La visión nocturna es clara y las notificaciones llegan al instante."
+  },
+  {
+    "id": "c76",
+    "fullName": "Ian Moreno",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-01T12:55:00Z",
+    "comment": "El soporte para monitor dual es robusto y se ajusta perfecto. Liberó mucho espacio en mi escritorio y mejora la ergonomía."
+  },
+  {
+    "id": "c77",
+    "fullName": "Victoria Blanco",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-01T10:10:00Z",
+    "comment": "La linterna LED recargable es súper potente. La uso para acampar y tiene varios modos de luz. La batería dura más de lo esperado."
+  },
+  {
+    "id": "c78",
+    "fullName": "Axel Cortés",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-09-30T23:25:00Z",
+    "comment": "El protector de pantalla de vidrio templado se instaló perfecto. No afecta la sensibilidad táctil y protege muy bien contra rayones."
+  },
+  {
+    "id": "c79",
+    "fullName": "Emma Reyes",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-09-30T20:40:00Z",
+    "comment": "La pulsera fitness es precisa y cómoda de usar. Monitorea el sueño, pasos y frecuencia cardíaca. La batería dura casi 2 semanas."
+  },
+  {
+    "id": "c80",
+    "fullName": "Oliver Arias",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-09-30T17:55:00Z",
+    "comment": "El cooler para laptop reduce la temperatura notablemente. Tiene ventiladores silenciosos y puertos USB adicionales. Muy recomendable."
   }
 ]

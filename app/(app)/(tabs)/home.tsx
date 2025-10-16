@@ -6,8 +6,9 @@ import { useScroll } from "@/contexts/ScrollContext";
 import { Review } from "@/interfaces";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
+  ActivityIndicator,
   Alert,
   Dimensions,
   FlatList,
@@ -25,6 +26,47 @@ const HomeScreen = () => {
   const tabBarHeight = bottom + 80;
   const flatListRef = useRef<FlatList>(null);
   const { scrollToTopRef } = useScroll();
+
+  const [displayedReviews, setDisplayedReviews] = useState<Review[]>([]);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [hasMoreData, setHasMoreData] = useState(true);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const ITEMS_PER_PAGE = 10;
+  const FAKE_LOADING_DELAY = 750;
+
+  // load initial reviews
+  useEffect(() => {
+    const initialReviews = reviewsData.slice(0, ITEMS_PER_PAGE);
+    setDisplayedReviews(initialReviews);
+    setCurrentPage(1);
+    setHasMoreData(reviewsData.length > ITEMS_PER_PAGE);
+  }, []);
+
+  // load more reviews with fake delay (750ms)
+  const loadMoreReviews = useCallback(async () => {
+    if (isLoadingMore || !hasMoreData) return;
+
+    setIsLoadingMore(true);
+
+    // fake loading delay (750ms)
+    await new Promise((resolve) => setTimeout(resolve, FAKE_LOADING_DELAY));
+
+    const nextPage = currentPage;
+    const startIndex = nextPage * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    const newReviews = reviewsData.slice(startIndex, endIndex);
+
+    if (newReviews.length > 0) {
+      setDisplayedReviews((prev) => [...prev, ...newReviews]);
+      setCurrentPage((prev) => prev + 1);
+      setHasMoreData(endIndex < reviewsData.length);
+    } else {
+      setHasMoreData(false);
+    }
+
+    setIsLoadingMore(false);
+  }, [isLoadingMore, hasMoreData, currentPage]);
 
   // scroll to top on home tab press
   useEffect(() => {
@@ -118,11 +160,25 @@ const HomeScreen = () => {
     </View>
   );
 
+  const renderFooter = () => {
+    if (!isLoadingMore) {
+      return <View style={{ height: tabBarHeight + 30 }} />;
+    }
+
+    return (
+      <View style={styles.footerLoader}>
+        <ActivityIndicator size="small" color="#171717" />
+        <Text style={styles.footerLoaderText}>Cargando más reseñas...</Text>
+        <View style={{ height: tabBarHeight + 20 }} />
+      </View>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <FlatList
         ref={flatListRef}
-        data={reviewsData}
+        data={displayedReviews}
         ListHeaderComponent={renderListHeader}
         renderItem={renderListItem}
         keyExtractor={(item) => item.id}
@@ -130,9 +186,8 @@ const HomeScreen = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.flatListContent}
         ItemSeparatorComponent={() => <View style={styles.reviewSeparator} />}
-        ListFooterComponent={() => (
-          <View style={{ height: tabBarHeight + 30 }} />
-        )}
+        ListFooterComponent={renderFooter}
+        onEndReached={loadMoreReviews}
       />
     </View>
   );
@@ -239,5 +294,16 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.regular,
     color: "#171717",
     lineHeight: 20,
+  },
+  footerLoader: {
+    paddingTop: 20,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  footerLoaderText: {
+    marginTop: 8,
+    fontSize: 14,
+    fontFamily: Fonts.regular,
+    color: "#757575",
   },
 });
