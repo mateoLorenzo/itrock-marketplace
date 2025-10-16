@@ -123,7 +123,11 @@ const CheckoutScreen = () => {
     if (formHasErrors) {
       return;
     }
-    Alert.alert("Éxito", "Compra finalizada correctamente");
+    Alert.alert(
+      "Gracias por tu compra",
+      "Tu pedido ha sido registrado con éxito, que lo disfrutes!"
+    );
+    router.back();
   };
 
   const focusCardName = () => cardNameRef.current?.focus();
@@ -366,7 +370,7 @@ const CheckoutScreen = () => {
             </TouchableOpacity>
           </View>
         </ScrollView>
-        <View style={[styles.buttonContainer]}>
+        <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.finalizeButton}
             onPress={handleFinalizePurchase}
