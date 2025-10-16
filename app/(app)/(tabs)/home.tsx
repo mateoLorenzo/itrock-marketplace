@@ -118,7 +118,7 @@ const HomeScreen = () => {
         <View style={styles.titleContainer}>
           <Text style={styles.title}>¡Te damos {"\n"}la bienvenida!</Text>
           <Text style={styles.subtitle}>
-            Conocé las mejores reseñas {"\n"}de productos premium
+            Descubri que opina la gente {"\n"}antes de salir a comprar
           </Text>
         </View>
       </View>

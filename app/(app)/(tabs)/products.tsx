@@ -122,7 +122,7 @@ const ProductsScreen = () => {
             {"\n"}últimas tendencias
           </Text>
           <Text style={styles.subtitle}>
-            Estilo unico y calidad, al mejor {"\n"}precio del mercado
+            Diseño, confort y calidad, {"\n"}sin pagar de más.
           </Text>
         </View>
       </View>
