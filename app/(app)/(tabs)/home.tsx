@@ -1,5 +1,6 @@
 import { Fonts } from "@/constants/Fonts";
-import { mockReviews, Review } from "@/data/mockData";
+import { mockReviews } from "@/data/mockData";
+import { Review } from "@/interfaces";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import {
