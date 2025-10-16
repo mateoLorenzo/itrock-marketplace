@@ -1,4 +1,5 @@
 import { Fonts } from "@/constants/Fonts";
+import { useAuth } from "@/contexts/AuthContext";
 import { mockProducts } from "@/data/mockData";
 import { Product } from "@/interfaces";
 import { Ionicons } from "@expo/vector-icons";
@@ -17,6 +18,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const ProductsScreen = () => {
   const router = useRouter();
+  const { state, logout } = useAuth();
   const { top, bottom } = useSafeAreaInsets();
   const tabBarHeight = bottom + 80;
 
@@ -24,14 +26,19 @@ const ProductsScreen = () => {
     router.push("/checkout");
   };
 
-  const handleLogout = () => {
-    router.replace("/auth/sign-in");
+  const handleLogout = async () => {
+    try {
+      await logout();
+      router.replace("/auth/sign-in");
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
   };
 
   const renderListHeader = () => (
     <View style={{ paddingTop: top + 40 }}>
       <View style={styles.userInfoContainer}>
-        <Text style={styles.userEmail}>itrock@gmail.com</Text>
+        <Text style={styles.userEmail}>{state.email}</Text>
         <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
           <Ionicons
             name="log-out-outline"

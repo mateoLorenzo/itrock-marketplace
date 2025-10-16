@@ -1,4 +1,5 @@
 import { Fonts } from "@/constants/Fonts";
+import { useAuth } from "@/contexts/AuthContext";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
@@ -15,6 +16,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const SignInScreen = () => {
   const router = useRouter();
+  const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -57,13 +59,18 @@ const SignInScreen = () => {
     return emailValidationError !== "" || passwordValidationError !== "";
   };
 
-  const handleSignIn = () => {
-    // const formHasErrors = validateForm();
-    // if (formHasErrors) {
-    //   return;
-    // }
+  const handleSignIn = async () => {
+    const formHasErrors = validateForm();
+    if (formHasErrors) {
+      return;
+    }
 
-    router.replace("/(app)/(tabs)/home");
+    try {
+      await login(email);
+      router.replace("/(app)/(tabs)/home");
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
   };
 
   const onChangeEmail = (text: string) => {
@@ -93,7 +100,7 @@ const SignInScreen = () => {
               <Text style={styles.label}>Correo electronico</Text>
               <TextInput
                 style={[styles.input, emailError && styles.inputError]}
-                placeholder="email@email.com"
+                placeholder="itrock@gmail.com"
                 placeholderTextColor="#BDBDBD"
                 value={email}
                 onChangeText={onChangeEmail}

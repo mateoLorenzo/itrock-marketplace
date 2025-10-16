@@ -89,6 +89,7 @@ export default function TabLayout() {
             focused ? <ProductsActive /> : <ProductsInactive />,
         }}
       />
+      <Tabs.Screen name="index" options={{ href: null }} />
     </Tabs>
   );
 }
