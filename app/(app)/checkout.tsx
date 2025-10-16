@@ -25,6 +25,11 @@ const CheckoutScreen = () => {
   const [cvv, setCvv] = useState("");
   const [savePaymentMethod, setSavePaymentMethod] = useState(false);
 
+  const [cardNameError, setCardNameError] = useState("");
+  const [cardNumberError, setCardNumberError] = useState("");
+  const [expirationError, setExpirationError] = useState("");
+  const [cvvError, setCvvError] = useState("");
+
   const cardNameRef = useRef<TextInput>(null);
   const cardNumberRef = useRef<TextInput>(null);
   const expirationRef = useRef<TextInput>(null);
@@ -34,9 +39,85 @@ const CheckoutScreen = () => {
     router.back();
   };
 
+  const validateCardName = (name: string): string => {
+    if (!name.trim()) {
+      return "Ingresa un nombre válido";
+    }
+    if (name.trim().length < 2) {
+      return "El nombre debe tener al menos 2 caracteres";
+    }
+    return "";
+  };
+
+  const validateCardNumber = (number: string): string => {
+    if (!number.trim()) {
+      return "Ingresa un número de tarjeta válido";
+    }
+
+    const cleanNumber = number.replace(/\s/g, "");
+    if (!/^\d{15}$/.test(cleanNumber)) {
+      return "Ingresa un número de tarjeta válido";
+    }
+    return "";
+  };
+
+  const validateExpiration = (exp: string): string => {
+    if (!exp.trim()) {
+      return "Ingresa una fecha válida";
+    }
+    if (!/^\d{2}\/\d{2}$/.test(exp)) {
+      return "Ingresa una fecha válida ";
+    }
+    const [month, year] = exp.split("/");
+    const monthNum = parseInt(month, 10);
+    const yearNum = parseInt(year, 10);
+    const currentYear = new Date().getFullYear() % 100;
+    const currentMonth = new Date().getMonth() + 1;
+
+    if (monthNum < 1 || monthNum > 12) {
+      return "El mes debe estar entre 01 y 12";
+    }
+    if (
+      yearNum < currentYear ||
+      (yearNum === currentYear && monthNum < currentMonth)
+    ) {
+      return "La tarjeta ha expirado";
+    }
+    return "";
+  };
+
+  const validateCvv = (cvvCode: string): string => {
+    if (!cvvCode.trim()) {
+      return "Ingresa un cvv válido";
+    }
+    if (!/^\d{3,4}$/.test(cvvCode)) {
+      return "Ingresa un cvv válido";
+    }
+    return "";
+  };
+
+  const validateForm = (): boolean => {
+    const cardNameValidationError = validateCardName(cardName);
+    const cardNumberValidationError = validateCardNumber(cardNumber);
+    const expirationValidationError = validateExpiration(expiration);
+    const cvvValidationError = validateCvv(cvv);
+
+    setCardNameError(cardNameValidationError);
+    setCardNumberError(cardNumberValidationError);
+    setExpirationError(expirationValidationError);
+    setCvvError(cvvValidationError);
+
+    return (
+      cardNameValidationError !== "" ||
+      cardNumberValidationError !== "" ||
+      expirationValidationError !== "" ||
+      cvvValidationError !== ""
+    );
+  };
+
   const handleFinalizePurchase = () => {
-    if (!expiration || !cvv) {
-      Alert.alert("Error", "Por favor completa todos los campos");
+    const formHasErrors = validateForm();
+    if (formHasErrors) {
       return;
     }
     Alert.alert("Éxito", "Compra finalizada correctamente");
@@ -46,6 +127,26 @@ const CheckoutScreen = () => {
   const focusCardNumber = () => cardNumberRef.current?.focus();
   const focusExpiration = () => expirationRef.current?.focus();
   const focusCvv = () => cvvRef.current?.focus();
+
+  const onChangeCardName = (text: string) => {
+    setCardName(text);
+    if (cardNameError) setCardNameError("");
+  };
+
+  const onChangeCardNumber = (text: string) => {
+    setCardNumber(text);
+    if (cardNumberError) setCardNumberError("");
+  };
+
+  const onChangeExpiration = (text: string) => {
+    setExpiration(text);
+    if (expirationError) setExpirationError("");
+  };
+
+  const onChangeCvv = (text: string) => {
+    setCvv(text);
+    if (cvvError) setCvvError("");
+  };
 
   return (
     <View style={styles.screenContainer}>
@@ -75,7 +176,10 @@ const CheckoutScreen = () => {
 
           <View style={styles.form}>
             <TouchableOpacity
-              style={styles.inputGroup}
+              style={[
+                styles.inputGroup,
+                cardNameError && styles.inputGroupError,
+              ]}
               onPress={focusCardName}
               activeOpacity={1}
             >
@@ -84,13 +188,19 @@ const CheckoutScreen = () => {
                 ref={cardNameRef}
                 style={styles.input}
                 value={cardName}
-                onChangeText={setCardName}
+                onChangeText={onChangeCardName}
                 placeholder="Nombre completo"
               />
             </TouchableOpacity>
+            {cardNameError !== "" && (
+              <Text style={styles.errorText}>{cardNameError}</Text>
+            )}
 
             <TouchableOpacity
-              style={styles.inputGroup}
+              style={[
+                styles.inputGroup,
+                cardNumberError && styles.inputGroupError,
+              ]}
               onPress={focusCardNumber}
               activeOpacity={1}
             >
@@ -99,7 +209,7 @@ const CheckoutScreen = () => {
                 ref={cardNumberRef}
                 style={[styles.input, styles.cardNumberInput]}
                 value={cardNumber}
-                onChangeText={setCardNumber}
+                onChangeText={onChangeCardNumber}
                 placeholder="0000 0000 0000 0000"
                 keyboardType="numeric"
               />
@@ -108,41 +218,60 @@ const CheckoutScreen = () => {
                 <Visa width={40} height={40} />
               </View>
             </TouchableOpacity>
+            {cardNumberError !== "" && (
+              <Text style={styles.errorText}>{cardNumberError}</Text>
+            )}
 
             <View style={styles.rowContainer}>
-              <TouchableOpacity
-                style={[styles.inputGroup, styles.halfWidth]}
-                onPress={focusExpiration}
-                activeOpacity={1}
-              >
-                <Text style={styles.inputLabel}>Vencimiento</Text>
-                <TextInput
-                  ref={expirationRef}
-                  style={styles.input}
-                  value={expiration}
-                  onChangeText={setExpiration}
-                  placeholder="00/00"
-                  keyboardType="numeric"
-                  maxLength={5}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={[styles.inputGroup, styles.halfWidth]}
-                onPress={focusCvv}
-                activeOpacity={1}
-              >
-                <Text style={styles.inputLabel}>Código</Text>
-                <TextInput
-                  ref={cvvRef}
-                  style={styles.input}
-                  value={cvv}
-                  onChangeText={setCvv}
-                  placeholder="CVV"
-                  keyboardType="numeric"
-                  maxLength={4}
-                  secureTextEntry
-                />
-              </TouchableOpacity>
+              <View style={styles.halfWidth}>
+                <TouchableOpacity
+                  style={[
+                    styles.inputGroup,
+                    expirationError && styles.inputGroupError,
+                  ]}
+                  onPress={focusExpiration}
+                  activeOpacity={1}
+                >
+                  <Text style={styles.inputLabel}>Vencimiento</Text>
+                  <TextInput
+                    ref={expirationRef}
+                    style={styles.input}
+                    value={expiration}
+                    onChangeText={onChangeExpiration}
+                    placeholder="00/00"
+                    keyboardType="numeric"
+                    maxLength={5}
+                  />
+                </TouchableOpacity>
+                {expirationError !== "" && (
+                  <Text style={styles.errorText}>{expirationError}</Text>
+                )}
+              </View>
+
+              <View style={styles.halfWidth}>
+                <TouchableOpacity
+                  style={[
+                    styles.inputGroup,
+                    cvvError && styles.inputGroupError,
+                  ]}
+                  onPress={focusCvv}
+                  activeOpacity={1}
+                >
+                  <Text style={styles.inputLabel}>Código</Text>
+                  <TextInput
+                    ref={cvvRef}
+                    style={styles.input}
+                    value={cvv}
+                    onChangeText={onChangeCvv}
+                    placeholder="CVV"
+                    keyboardType="numeric"
+                    maxLength={4}
+                  />
+                </TouchableOpacity>
+                {cvvError !== "" && (
+                  <Text style={styles.errorText}>{cvvError}</Text>
+                )}
+              </View>
             </View>
 
             <TouchableOpacity
@@ -192,7 +321,7 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingHorizontal: 20,
-    paddingBottom: 30,
+    paddingBottom: 10,
   },
   backButton: {
     width: 60,
@@ -220,12 +349,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   inputGroup: {
-    marginBottom: 20,
+    marginTop: 20,
     justifyContent: "center",
     borderWidth: 1,
     borderColor: "#707070",
     borderRadius: 20,
     padding: 20,
+  },
+  inputGroupError: {
+    borderColor: "#EF4444",
   },
   inputLabel: {
     fontSize: 14,
@@ -307,5 +439,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: Fonts.medium,
     color: "#FFFFFF",
+  },
+  errorText: {
+    fontSize: 12,
+    fontFamily: Fonts.regular,
+    color: "#EF4444",
+    marginTop: 8,
   },
 });
