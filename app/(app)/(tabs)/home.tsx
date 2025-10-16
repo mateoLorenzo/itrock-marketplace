@@ -8,6 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React, { useEffect, useRef } from "react";
 import {
+  Alert,
   Dimensions,
   FlatList,
   StyleSheet,
@@ -39,8 +40,20 @@ const HomeScreen = () => {
 
   const handleLogout = async () => {
     try {
-      await logout();
-      router.replace("/auth/sign-in");
+      Alert.alert("Logout", "Are you sure you want to logout?", [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Logout",
+          style: "destructive",
+          onPress: async () => {
+            await logout();
+            router.replace("/auth/sign-in");
+          },
+        },
+      ]);
     } catch (error) {
       console.error("Error during logout:", error);
     }
