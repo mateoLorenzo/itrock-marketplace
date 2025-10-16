@@ -1,282 +1,282 @@
 [
   {
-    "id": 1,
-    "user": "Valentina Gómez",
-    "initials": "VG",
-    "date": "15 Octubre 18:42hs",
-    "text": "Compré los Beoplay H95 y la cancelación de ruido es simplemente perfecta. La calidad del sonido supera a cualquier otro auricular que tuve."
+    "id": "c1",
+    "fullName": "Valentina Gómez",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-15T18:42:00Z",
+    "comment": "Los auriculares inalámbricos que pedí tienen cancelación de ruido perfecta. La calidad del sonido supera cualquier otro que probé antes."
   },
   {
-    "id": 2,
-    "user": "Julián Torres",
-    "initials": "JT",
-    "date": "15 Octubre 09:12hs",
-    "text": "El Beosound A1 me sorprendió por su tamaño, suena muy fuerte y con bajos potentes. Ideal para viajes."
+    "id": "c2",
+    "fullName": "Julián Torres",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-15T09:12:00Z",
+    "comment": "La campera oversize me quedó perfecta. Tela de alta calidad y el fit es exactamente como en las fotos. Ideal para el invierno."
   },
   {
-    "id": 3,
-    "user": "Lucía Fernández",
-    "initials": "LF",
-    "date": "14 Octubre 23:10hs",
-    "text": "Compré el Beoplay EQ para usar en oficina. Son cómodos pero me hubiera gustado más autonomía de batería."
+    "id": "c3",
+    "fullName": "Lucía Fernández",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-14T23:10:00Z",
+    "comment": "Compré el mouse ergonómico para la oficina. Es cómodo para usar todo el día, aunque hubiera preferido más opciones de DPI."
   },
   {
-    "id": 4,
-    "user": "Martín Álvarez",
-    "initials": "MA",
-    "date": "14 Octubre 17:45hs",
-    "text": "El Beosound Explore es muy resistente. Lo usé en un camping con lluvia y sigue como nuevo."
+    "id": "c4",
+    "fullName": "Martín Álvarez",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-14T17:45:00Z",
+    "comment": "El smartwatch es muy resistente. Lo usé entrenando bajo lluvia y en la pileta, sigue funcionando perfecto después de meses."
   },
   {
-    "id": 5,
-    "user": "Carla Duarte",
-    "initials": "CD",
-    "date": "14 Octubre 11:27hs",
-    "text": "Excelente atención postventa. Tuve un problema con el cable USB-C del A9 y me lo reemplazaron enseguida."
+    "id": "c5",
+    "fullName": "Carla Duarte",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-14T11:27:00Z",
+    "comment": "Excelente atención al cliente. Tuve un problema con la lámpara LED inteligente y me la cambiaron sin hacer preguntas."
   },
   {
-    "id": 6,
-    "user": "Tomás Ortega",
-    "initials": "TO",
-    "date": "13 Octubre 21:54hs",
-    "text": "Beoplay HX: el sonido es envolvente y muy equilibrado, pero el ajuste en la cabeza podría ser más firme."
+    "id": "c6",
+    "fullName": "Tomás Ortega",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-13T21:54:00Z",
+    "comment": "Las zapatillas deportivas son súper livianas y cómodas. Tienen buen soporte para el arco, aunque me gustaría que tengan más ventilación."
   },
   {
-    "id": 7,
-    "user": "Nicolás Rojas",
-    "initials": "NR",
-    "date": "13 Octubre 19:31hs",
-    "text": "Compré el Beosound Level para el living. La calidad del diseño y el audio es impresionante, aunque el precio es alto."
+    "id": "c7",
+    "fullName": "Nicolás Rojas",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-13T19:31:00Z",
+    "comment": "Compré el sillón gamer para mi setup. La calidad del material y la ergonomía son increíbles, aunque el precio es bastante elevado."
   },
   {
-    "id": 8,
-    "user": "Camila Vera",
-    "initials": "CV",
-    "date": "13 Octubre 15:10hs",
-    "text": "El Beoplay Portal para Xbox es una joya. Micrófono claro, sonido espacial real. Lo recomiendo para gamers exigentes."
+    "id": "c8",
+    "fullName": "Camila Vera",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-13T15:10:00Z",
+    "comment": "El teclado mecánico RGB es una obra maestra. Switches táctiles perfectos, sonido satisfactorio. Lo recomiendo para gaming y programación."
   },
   {
-    "id": 9,
-    "user": "Pablo Sánchez",
-    "initials": "PS",
-    "date": "13 Octubre 09:20hs",
-    "text": "Beosound Stage con mi tele LG se escucha increíble, pero me costó un poco configurarla al principio."
+    "id": "c9",
+    "fullName": "Pablo Sánchez",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-13T09:20:00Z",
+    "comment": "La remera de algodón premium tiene un corte perfecto. La tela es suave y respirable, aunque encogió un poco después del primer lavado."
   },
   {
-    "id": 10,
-    "user": "Florencia Medina",
-    "initials": "FM",
-    "date": "12 Octubre 22:38hs",
-    "text": "Los Beoplay EX tienen un look premium. Los uso para entrenar y nunca se me caen. Buen balance entre agudos y bajos."
+    "id": "c10",
+    "fullName": "Florencia Medina",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-12T22:38:00Z",
+    "comment": "Los earbuds tienen un diseño premium y se sienten seguros. Los uso para entrenar y nunca se caen. El balance de audio es excelente."
   },
   {
-    "id": 11,
-    "user": "Andrés Pérez",
-    "initials": "AP",
-    "date": "12 Octubre 19:20hs",
-    "text": "El Beolit 20 tiene una potencia tremenda. En exteriores mantiene una calidad de audio impecable."
+    "id": "c11",
+    "fullName": "Andrés Pérez",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-12T19:20:00Z",
+    "comment": "El parlante portátil tiene una potencia impresionante. Lo usé en exteriores y mantiene una calidad de audio perfecta sin distorsión."
   },
   {
-    "id": 12,
-    "user": "María López",
-    "initials": "ML",
-    "date": "12 Octubre 15:02hs",
-    "text": "Compre el Beosound A5 para mi oficina. El diseño escandinavo se roba todas las miradas, suena limpio y natural."
+    "id": "c12",
+    "fullName": "María López",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-12T15:02:00Z",
+    "comment": "Compré la lámpara de pie minimalista para la oficina. El diseño es elegante y la luz LED regulable es perfecta para trabajar."
   },
   {
-    "id": 13,
-    "user": "Gonzalo Herrera",
-    "initials": "GH",
-    "date": "12 Octubre 11:45hs",
-    "text": "Beoplay E8 Sport: cómodos, livianos y no se mueven al correr. Buen aislamiento de ruido."
+    "id": "c13",
+    "fullName": "Gonzalo Herrera",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-12T11:45:00Z",
+    "comment": "La mochila técnica es cómoda, liviana y tiene compartimentos perfectos. El material es resistente y repele el agua muy bien."
   },
   {
-    "id": 14,
-    "user": "Natalia Ruiz",
-    "initials": "NR",
-    "date": "12 Octubre 09:11hs",
-    "text": "El Beosound Balance tiene una presencia visual impresionante. El sonido 360° llena la habitación sin distorsionar."
+    "id": "c14",
+    "fullName": "Natalia Ruiz",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-12T09:11:00Z",
+    "comment": "El iPhone reacondicionado tiene una calidad impecable. La batería está como nueva y la pantalla no tiene ni un rasguño visible."
   },
   {
-    "id": 15,
-    "user": "Lucas Cabrera",
-    "initials": "LC",
-    "date": "11 Octubre 21:44hs",
-    "text": "Beoplay HX: batería eterna. Lo cargué hace una semana y todavía marca 60%."
+    "id": "c15",
+    "fullName": "Lucas Cabrera",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-11T21:44:00Z",
+    "comment": "El power bank de 20,000mAh es increíble. Lo cargué hace una semana y todavía me queda más del 60% de batería después de varios usos."
   },
   {
-    "id": 16,
-    "user": "Sofía Acosta",
-    "initials": "SA",
-    "date": "11 Octubre 19:22hs",
-    "text": "El Beosound Level tiene un sonido nítido, pero no me gusta que use conector magnético propietario."
+    "id": "c16",
+    "fullName": "Sofía Acosta",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-11T19:22:00Z",
+    "comment": "El cargador inalámbrico funciona perfecto y carga rápido, pero me hubiera gustado que incluya un cable USB-C en la caja."
   },
   {
-    "id": 17,
-    "user": "Ignacio Paredes",
-    "initials": "IP",
-    "date": "11 Octubre 13:55hs",
-    "text": "Compre el A9 para mi estudio, y es literalmente una obra de arte. Cada vez que viene alguien lo nota."
+    "id": "c17",
+    "fullName": "Ignacio Paredes",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-11T13:55:00Z",
+    "comment": "Compré el escritorio ajustable en altura para mi home office. Es literalmente una pieza de arte funcional. Todos mis amigos lo notan."
   },
   {
-    "id": 18,
-    "user": "Brenda Domínguez",
-    "initials": "BD",
-    "date": "11 Octubre 09:40hs",
-    "text": "Los Beoplay H9 suenan muy bien, aunque el material de las almohadillas se calienta después de un rato."
+    "id": "c18",
+    "fullName": "Brenda Domínguez",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-11T09:40:00Z",
+    "comment": "Las medias deportivas técnicas son muy buenas, aunque después de varias horas de uso en verano, se sienten un poco calurosas."
   },
   {
-    "id": 19,
-    "user": "Felipe Mena",
-    "initials": "FM",
-    "date": "10 Octubre 23:05hs",
-    "text": "El Beosound A1 lo uso en la pileta. La conexión Bluetooth es estable y resiste el agua sin problemas."
+    "id": "c19",
+    "fullName": "Felipe Mena",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-10T23:05:00Z",
+    "comment": "El reloj inteligente es resistente al agua y lo usé nadando sin problemas. La sincronización con mi celular es instantánea."
   },
   {
-    "id": 20,
-    "user": "Julieta Coria",
-    "initials": "JC",
-    "date": "10 Octubre 20:31hs",
-    "text": "Beoplay Portal versión PC: excelentes para reuniones y música. Los micrófonos cancelan ruido de fondo muy bien."
+    "id": "c20",
+    "fullName": "Julieta Coria",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-10T20:31:00Z",
+    "comment": "La webcam 4K es excelente para reuniones y streaming. La calidad de imagen es nítida y el micrófono integrado cancela el ruido ambiental."
   },
   {
-    "id": 21,
-    "user": "Agustín Silva",
-    "initials": "AS",
-    "date": "10 Octubre 17:02hs",
-    "text": "El Beosound Balance vale cada centavo. Graves profundos sin perder detalle en las voces."
+    "id": "c21",
+    "fullName": "Agustín Silva",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-10T17:02:00Z",
+    "comment": "El monitor curvo 4K vale cada peso. Los colores son vibrantes y los 144Hz hacen una diferencia enorme para gaming y edición."
   },
   {
-    "id": 22,
-    "user": "Manuela Gaitán",
-    "initials": "MG",
-    "date": "10 Octubre 15:40hs",
-    "text": "Compré el Beolit 20 en color antracita. Hermoso diseño, pero algo pesado para llevar en mochila."
+    "id": "c22",
+    "fullName": "Manuela Gaitán",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-10T15:40:00Z",
+    "comment": "Compré el buzo hoodie en color negro. El diseño es hermoso y la tela de algodón premium, aunque es un poco pesado para usar todo el día."
   },
   {
-    "id": 23,
-    "user": "Rodrigo Vega",
-    "initials": "RV",
-    "date": "10 Octubre 12:18hs",
-    "text": "Beoplay EX: conexión instantánea con iPhone, pero el modo transparencia podría ser más natural."
+    "id": "c23",
+    "fullName": "Rodrigo Vega",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-10T12:18:00Z",
+    "comment": "Los AirPods Pro tienen conexión instantánea con iPhone. El modo transparencia funciona bien pero podría ser más natural al hablar."
   },
   {
-    "id": 24,
-    "user": "Emilia Costa",
-    "initials": "EC",
-    "date": "10 Octubre 09:07hs",
-    "text": "El Beosound Stage mejora muchísimo el audio de mi televisor. Voces claras y bajos potentes."
+    "id": "c24",
+    "fullName": "Emilia Costa",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-10T09:07:00Z",
+    "comment": "La barra de sonido mejora muchísimo mi experiencia con Netflix. Las voces se escuchan claras y los efectos tienen buenos bajos."
   },
   {
-    "id": 25,
-    "user": "David Luna",
-    "initials": "DL",
-    "date": "09 Octubre 22:45hs",
-    "text": "Beoplay H95: materiales premium, se nota en cada detalle. El estuche rígido es excelente."
+    "id": "c25",
+    "fullName": "David Luna",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-09T22:45:00Z",
+    "comment": "La billetera de cuero genuino tiene materiales premium que se notan en cada detalle. Viene con protección RFID incluida."
   },
   {
-    "id": 26,
-    "user": "Renata Salas",
-    "initials": "RS",
-    "date": "09 Octubre 20:20hs",
-    "text": "El Beosound Explore aguanta golpes y agua, lo usé en montaña. Muy buena compra."
+    "id": "c26",
+    "fullName": "Renata Salas",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-09T20:20:00Z",
+    "comment": "El case para iPad aguanta golpes y protege perfecto. Lo usé en un viaje de trekking y el tablet quedó impecable."
   },
   {
-    "id": 27,
-    "user": "Tomás Vidal",
-    "initials": "TV",
-    "date": "09 Octubre 17:12hs",
-    "text": "Beoplay E8 Sport: me gusta el sonido, pero el estuche de carga se raya fácil."
+    "id": "c27",
+    "fullName": "Tomás Vidal",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-09T17:12:00Z",
+    "comment": "El panel LED RGB para decorar quedó genial en mi setup. Me gusta el efecto de luz, pero el adhesivo se despega con facilidad."
   },
   {
-    "id": 28,
-    "user": "Milagros Pérez",
-    "initials": "MP",
-    "date": "09 Octubre 15:55hs",
-    "text": "Beolit 20: el mejor altavoz Bluetooth que probé. Llenó una habitación grande sin distorsionar."
+    "id": "c28",
+    "fullName": "Milagros Pérez",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-09T15:55:00Z",
+    "comment": "El drone con cámara 4K es el mejor que probé en esta gama de precio. Los videos quedan increíbles y es muy estable en el aire."
   },
   {
-    "id": 29,
-    "user": "Franco Castillo",
-    "initials": "FC",
-    "date": "09 Octubre 12:41hs",
-    "text": "Compré el cable USB-C original y se nota la diferencia en la velocidad de carga del A1."
+    "id": "c29",
+    "fullName": "Franco Castillo",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-09T12:41:00Z",
+    "comment": "Compré el cable USB-C trenzado y se nota la calidad. Carga más rápido que otros cables genéricos y parece muy resistente."
   },
   {
-    "id": 30,
-    "user": "Paula Navarro",
-    "initials": "PN",
-    "date": "09 Octubre 09:30hs",
-    "text": "El Beoplay Portal es hermoso, pero me costó emparejarlo con la PS5 al principio."
+    "id": "c30",
+    "fullName": "Paula Navarro",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-09T09:30:00Z",
+    "comment": "Los auriculares gaming RGB son hermosos. La calidad de audio es buena pero me costó configurarlos con la PS5 al principio."
   },
   {
-    "id": 31,
-    "user": "Ricardo López",
-    "initials": "RL",
-    "date": "08 Octubre 22:48hs",
-    "text": "Beoplay HX: ecualización muy natural, ideal para mezclar música. La app es intuitiva."
+    "id": "c31",
+    "fullName": "Ricardo López",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-08T22:48:00Z",
+    "comment": "El micrófono USB para streaming tiene una ecualización muy natural. Ideal para podcasts y música. La app de control es intuitiva."
   },
   {
-    "id": 32,
-    "user": "Carolina Núñez",
-    "initials": "CN",
-    "date": "08 Octubre 19:33hs",
-    "text": "El A5 me encantó, pero la base de carga inalámbrica debería venir incluida."
+    "id": "c32",
+    "fullName": "Carolina Núñez",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-08T19:33:00Z",
+    "comment": "El soporte para laptop ajustable me encantó. Mejora muchísimo la postura, pero el pad antideslizante debería venir incluido."
   },
   {
-    "id": 33,
-    "user": "Diego Morales",
-    "initials": "DM",
-    "date": "08 Octubre 17:11hs",
-    "text": "Beosound A1 2da gen: excelente mejora respecto a la anterior. Micrófono y batería más potentes."
+    "id": "c33",
+    "fullName": "Diego Morales",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-08T17:11:00Z",
+    "comment": "Samsung Galaxy S24: excelente mejora respecto al modelo anterior. La cámara y batería son notablemente más potentes que el S23."
   },
   {
-    "id": 34,
-    "user": "Andrea Torres",
-    "initials": "AT",
-    "date": "08 Octubre 14:25hs",
-    "text": "Beoplay EQ: se sienten premium, aunque el estuche podría ser más resistente."
+    "id": "c34",
+    "fullName": "Andrea Torres",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-08T14:25:00Z",
+    "comment": "Las gafas de sol polarizadas se sienten premium y protegen muy bien del sol. El único detalle es que el estuche podría ser más resistente."
   },
   {
-    "id": 35,
-    "user": "Leonel Farias",
-    "initials": "LF",
-    "date": "08 Octubre 10:40hs",
-    "text": "El Beosound Level tiene sonido cálido, ideal para jazz y acústico. Se nota el trabajo artesanal."
+    "id": "c35",
+    "fullName": "Leonel Farias",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-08T10:40:00Z",
+    "comment": "El sillón reclinable de tela tiene un diseño ergonómico perfecto. Es ideal para leer y relajarse. Se nota la calidad artesanal en las costuras."
   },
   {
-    "id": 36,
-    "user": "Sabrina Molina",
-    "initials": "SM",
-    "date": "08 Octubre 09:05hs",
-    "text": "Beosound Stage: increíble experiencia de cine en casa. Los bajos son profundos y controlados."
+    "id": "c36",
+    "fullName": "Sabrina Molina",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-08T09:05:00Z",
+    "comment": "La notebook gaming es increíble para juegos y streaming. La pantalla de 165Hz y los gráficos RTX ofrecen una experiencia de primera."
   },
   {
-    "id": 37,
-    "user": "Juan Martín Peña",
-    "initials": "JP",
-    "date": "07 Octubre 22:20hs",
-    "text": "Compré los H95 recondicionados y llegaron como nuevos. Sonido impecable y cero fallas."
+    "id": "c37",
+    "fullName": "Juan Martín Peña",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-07T22:20:00Z",
+    "comment": "Compré el iPad Pro reacondicionado y llegó como nuevo. Pantalla perfecta, batería al 100% y cero ralladuras. Excelente inversión."
   },
   {
-    "id": 38,
-    "user": "Ezequiel Bravo",
-    "initials": "EB",
-    "date": "07 Octubre 20:18hs",
-    "text": "Beolit 20: la autonomía real me dio 6 horas a volumen alto, menos de lo anunciado."
+    "id": "c38",
+    "fullName": "Ezequiel Bravo",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-07T20:18:00Z",
+    "comment": "Las luces LED inteligentes: la autonomía programada me dio 6 horas de uso continuo a máximo brillo, un poco menos de lo anunciado."
   },
   {
-    "id": 39,
-    "user": "Lara Campos",
-    "initials": "LC",
-    "date": "07 Octubre 17:42hs",
-    "text": "Beoplay EX: perfectos para reuniones, el micrófono capta muy bien la voz sin ruidos."
+    "id": "c39",
+    "fullName": "Lara Campos",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-07T17:42:00Z",
+    "comment": "Los lentes con filtro de luz azul son perfectos para trabajar frente a la pantalla. Reducen el cansancio visual sin distorsionar colores."
   },
   {
-    "id": 40,
-    "user": "Mateo Lorenzo",
-    "initials": "ML",
-    "date": "07 Octubre 13:11hs",
-    "text": "Probé casi todos los parlantes Bang & Olufsen y el A5 es mi favorito. Potencia, claridad y diseño espectacular."
+    "id": "c40",
+    "fullName": "Mateo Lorenzo",
+    "avatarUrl": "https://avatar.iran.liara.run/public",
+    "timestamp": "2025-10-07T13:11:00Z",
+    "comment": "Probé varios parlantes inteligentes y este es mi favorito. Potencia, claridad de audio y diseño minimalista espectacular. Vale cada peso."
   }
 ]

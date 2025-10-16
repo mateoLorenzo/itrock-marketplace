@@ -1,9 +1,9 @@
 export interface Review {
-  id: number;
-  user: string;
-  initials: string;
-  date: string;
-  text: string;
+  id: string;
+  fullName: string;
+  avatarUrl: string;
+  timestamp: string;
+  comment: string;
 }
 
 export interface ProductCategory {

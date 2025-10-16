@@ -8,6 +8,7 @@ import React from "react";
 import {
   Dimensions,
   FlatList,
+  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -55,15 +56,51 @@ const HomeScreen = () => {
     </View>
   );
 
+  const getInitials = (fullName: string) => {
+    return fullName
+      .split(" ")
+      .map((word) => word[0])
+      .join("")
+      .toUpperCase()
+      .slice(0, 2);
+  };
+
+  const formatDate = (timestamp: string) => {
+    const date = new Date(timestamp);
+    const months = [
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre",
+    ];
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    const hours = date.getHours().toString().padStart(2, "0");
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    return `${day} ${month} ${hours}:${minutes}hs`;
+  };
+
   const renderListItem = ({ item }: { item: Review }) => (
     <View style={styles.reviewItem}>
-      <View style={styles.avatarContainer}>
-        <Text style={styles.avatarText}>{item.initials}</Text>
-      </View>
+      {item.avatarUrl ? (
+        <Image source={{ uri: item.avatarUrl }} style={styles.avatarImage} />
+      ) : (
+        <View style={styles.avatarContainer}>
+          <Text style={styles.avatarText}>{getInitials(item.fullName)}</Text>
+        </View>
+      )}
       <View style={styles.reviewContent}>
-        <Text style={styles.userName}>{item.user}</Text>
-        <Text style={styles.date}>{item.date}</Text>
-        <Text style={styles.reviewText}>{item.text}</Text>
+        <Text style={styles.userName}>{item.fullName}</Text>
+        <Text style={styles.date}>{formatDate(item.timestamp)}</Text>
+        <Text style={styles.reviewText}>{item.comment}</Text>
       </View>
     </View>
   );
@@ -74,7 +111,7 @@ const HomeScreen = () => {
         data={reviewsData}
         ListHeaderComponent={renderListHeader}
         renderItem={renderListItem}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.id}
         style={styles.reviewsContainer}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.flatListContent}
@@ -176,6 +213,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginRight: 12,
+  },
+  avatarImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 12,
+    backgroundColor: "#F7F7F5",
   },
   avatarText: {
     fontSize: 14,
