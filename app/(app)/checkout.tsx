@@ -1,4 +1,4 @@
-import { ArrowBack } from "@/components/Icon";
+import { ArrowBack, Visa } from "@/components/Icon";
 import { Fonts } from "@/constants/Fonts";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
@@ -17,8 +17,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 const CheckoutScreen = () => {
   const router = useRouter();
   const { top, bottom } = useSafeAreaInsets();
-  const [cardName, setCardName] = useState("Mateo Lorenzo");
-  const [cardNumber, setCardNumber] = useState("1762 9837 2132 8726");
+  const [cardName, setCardName] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
   const [expiration, setExpiration] = useState("");
   const [cvv, setCvv] = useState("");
   const [savePaymentMethod, setSavePaymentMethod] = useState(false);
@@ -62,23 +62,22 @@ const CheckoutScreen = () => {
               style={styles.input}
               value={cardName}
               onChangeText={setCardName}
-              placeholder="Nombre en la tarjeta"
+              placeholder="Nombre completo"
             />
           </View>
 
           <View style={styles.inputGroup}>
             <Text style={styles.inputLabel}>Número de tarjeta</Text>
-            <View style={styles.cardNumberContainer}>
-              <TextInput
-                style={[styles.input, styles.cardNumberInput]}
-                value={cardNumber}
-                onChangeText={setCardNumber}
-                placeholder="0000 0000 0000 0000"
-                keyboardType="numeric"
-              />
-              <View style={styles.visaContainer}>
-                <Text style={styles.visaText}>VISA</Text>
-              </View>
+            <TextInput
+              style={[styles.input, styles.cardNumberInput]}
+              value={cardNumber}
+              onChangeText={setCardNumber}
+              placeholder="0000 0000 0000 0000"
+              keyboardType="numeric"
+            />
+            <View style={styles.visaContainer}>
+              <View style={styles.visaSeparator} />
+              <Visa width={40} height={40} />
             </View>
           </View>
 
@@ -180,30 +179,23 @@ const styles = StyleSheet.create({
   },
   inputGroup: {
     marginBottom: 20,
+    height: 88,
+    justifyContent: "center",
+    borderWidth: 1,
+    borderColor: "#707070",
+    borderRadius: 20,
+    padding: 20,
   },
   inputLabel: {
     fontSize: 14,
     fontFamily: Fonts.regular,
-    color: "#9E9E9E",
+    color: "#707070",
     marginBottom: 8,
   },
   input: {
-    borderWidth: 1,
-    borderColor: "#E0E0E0",
-    borderRadius: 8,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
     fontSize: 16,
-    fontFamily: Fonts.regular,
+    fontFamily: Fonts.medium,
     color: "#171717",
-    backgroundColor: "#FFFFFF",
-  },
-  cardNumberContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    borderWidth: 1,
-    borderColor: "#E0E0E0",
-    borderRadius: 8,
     backgroundColor: "#FFFFFF",
   },
   cardNumberInput: {
@@ -212,10 +204,17 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   visaContainer: {
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderLeftWidth: 1,
-    borderLeftColor: "#E0E0E0",
+    position: "absolute",
+    height: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 20,
+    right: 20,
+  },
+  visaSeparator: {
+    width: 1,
+    height: "100%",
+    backgroundColor: "#707070",
   },
   visaText: {
     fontSize: 12,
