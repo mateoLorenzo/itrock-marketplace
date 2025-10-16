@@ -1,5 +1,10 @@
+import {
+  HomeActive,
+  HomeInactive,
+  ProductsActive,
+  ProductsInactive,
+} from "@/components/Icon";
 import { Fonts } from "@/constants/Fonts";
-import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -23,7 +28,7 @@ export default function TabLayout() {
         tabBarLabelStyle: {
           fontFamily: Fonts.regular,
           fontSize: 12,
-          marginTop: 4,
+          marginTop: 10,
         },
         headerShown: false,
       }}
@@ -32,26 +37,16 @@ export default function TabLayout() {
         name="home"
         options={{
           title: "Inicio",
-          tabBarIcon: ({ focused, color }) => (
-            <Ionicons
-              name={focused ? "home" : "home-outline"}
-              size={24}
-              color={color}
-            />
-          ),
+          tabBarIcon: ({ focused }) =>
+            focused ? <HomeActive /> : <HomeInactive />,
         }}
       />
       <Tabs.Screen
         name="products"
         options={{
           title: "Productos",
-          tabBarIcon: ({ focused, color }) => (
-            <Ionicons
-              name={focused ? "grid" : "grid-outline"}
-              size={24}
-              color={color}
-            />
-          ),
+          tabBarIcon: ({ focused }) =>
+            focused ? <ProductsActive /> : <ProductsInactive />,
         }}
       />
     </Tabs>
