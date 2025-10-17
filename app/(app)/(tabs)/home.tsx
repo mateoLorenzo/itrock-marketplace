@@ -5,13 +5,13 @@ import { useAuth } from "@/src/contexts/AuthContext";
 import { useScroll } from "@/src/contexts/ScrollContext";
 import { Review } from "@/src/interfaces";
 import { Ionicons } from "@expo/vector-icons";
-import { FlashList } from "@shopify/flash-list";
 import { useRouter } from "expo-router";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
   Alert,
   Dimensions,
+  FlatList,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -24,8 +24,8 @@ const HomeScreen = () => {
   const { state, logout } = useAuth();
   const { top, bottom } = useSafeAreaInsets();
   const tabBarHeight = bottom + 80;
-  const flashListRef = useRef<any>(null);
   const { scrollToTopRef } = useScroll();
+  const flatListRef = useRef<FlatList>(null);
 
   const [displayedReviews, setDisplayedReviews] = useState<Review[]>([]);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
@@ -72,7 +72,7 @@ const HomeScreen = () => {
   useEffect(() => {
     const ref = scrollToTopRef.current;
     ref.home = () => {
-      flashListRef.current?.scrollToOffset({ offset: 0, animated: true });
+      flatListRef.current?.scrollToOffset({ offset: 0, animated: true });
     };
 
     return () => {
@@ -182,18 +182,19 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <FlashList
-        ref={flashListRef}
+      <FlatList
+        ref={flatListRef}
         data={displayedReviews}
         ListHeaderComponent={renderListHeader}
         renderItem={renderListItem}
         keyExtractor={(item) => item.id}
+        style={styles.reviewsContainer}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.flatListContent}
         ItemSeparatorComponent={() => <View style={styles.reviewSeparator} />}
         ListFooterComponent={renderFooter}
         onEndReached={loadMoreReviews}
-        onEndReachedThreshold={1}
+        onEndReachedThreshold={0.8}
       />
     </View>
   );
@@ -264,6 +265,9 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     width: Dimensions.get("window").width,
     right: 20,
+  },
+  reviewsContainer: {
+    flex: 1,
   },
   flatListContent: {
     paddingHorizontal: 20,
