@@ -8,7 +8,17 @@ export const ProductImageWithSkeleton = ({
 }) => {
   const [isImageLoading, setIsImageLoading] = useState(true);
   const [hasImageError, setHasImageError] = useState(false);
+  const [currentUrl, setCurrentUrl] = useState(imageUrl);
   const skeletonOpacity = useRef(new Animated.Value(0.3)).current;
+
+  // reset loading state when url changes
+  useEffect(() => {
+    if (currentUrl !== imageUrl) {
+      setIsImageLoading(true);
+      setHasImageError(false);
+      setCurrentUrl(imageUrl);
+    }
+  }, [imageUrl, currentUrl]);
 
   useEffect(() => {
     if (isImageLoading && imageUrl) {
@@ -56,6 +66,7 @@ export const ProductImageWithSkeleton = ({
         />
       )}
       <Image
+        key={imageUrl}
         source={{ uri: imageUrl }}
         style={[styles.productImage, isImageLoading && { opacity: 0 }]}
         onLoad={handleImageLoad}

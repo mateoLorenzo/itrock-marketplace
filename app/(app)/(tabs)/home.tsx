@@ -5,6 +5,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useScroll } from "@/contexts/ScrollContext";
 import { Review } from "@/interfaces";
 import { Ionicons } from "@expo/vector-icons";
+import { FlashList } from "@shopify/flash-list";
 import { useRouter } from "expo-router";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
@@ -149,15 +150,21 @@ const HomeScreen = () => {
     return `${day} ${month} ${hours}:${minutes}hs`;
   };
 
-  const renderListItem = ({ item }: { item: Review }) => (
-    <View style={styles.reviewItem}>
-      <AvatarWithSkeleton avatarUrl={item.avatarUrl} fullName={item.fullName} />
-      <View style={styles.reviewContent}>
-        <Text style={styles.userName}>{item.fullName}</Text>
-        <Text style={styles.date}>{formatDate(item.timestamp)}</Text>
-        <Text style={styles.reviewText}>{item.comment}</Text>
+  const renderListItem = useCallback(
+    ({ item }: { item: Review }) => (
+      <View style={styles.reviewItem}>
+        <AvatarWithSkeleton
+          avatarUrl={item.avatarUrl}
+          fullName={item.fullName}
+        />
+        <View style={styles.reviewContent}>
+          <Text style={styles.userName}>{item.fullName}</Text>
+          <Text style={styles.date}>{formatDate(item.timestamp)}</Text>
+          <Text style={styles.reviewText}>{item.comment}</Text>
+        </View>
       </View>
-    </View>
+    ),
+    []
   );
 
   const renderFooter = () => {
@@ -176,14 +183,11 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        ref={flatListRef}
+      <FlashList
         data={displayedReviews}
         ListHeaderComponent={renderListHeader}
         renderItem={renderListItem}
-        keyExtractor={(item) =>
-          item.id + Math.random().toString(36).substring(2, 15)
-        }
+        keyExtractor={(item) => item.id}
         style={styles.reviewsContainer}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.flatListContent}

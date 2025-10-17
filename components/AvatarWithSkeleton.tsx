@@ -20,7 +20,17 @@ export const AvatarWithSkeleton = ({
 }) => {
   const [isImageLoading, setIsImageLoading] = useState(true);
   const [hasImageError, setHasImageError] = useState(false);
+  const [currentUrl, setCurrentUrl] = useState(avatarUrl);
   const skeletonOpacity = useRef(new Animated.Value(0.3)).current;
+
+  // reset loading state when url changes
+  useEffect(() => {
+    if (currentUrl !== avatarUrl) {
+      setIsImageLoading(true);
+      setHasImageError(false);
+      setCurrentUrl(avatarUrl);
+    }
+  }, [avatarUrl, currentUrl]);
 
   useEffect(() => {
     if (isImageLoading && avatarUrl) {
@@ -68,6 +78,7 @@ export const AvatarWithSkeleton = ({
         />
       )}
       <Image
+        key={avatarUrl}
         source={{ uri: avatarUrl }}
         style={[styles.avatarImage, isImageLoading && { opacity: 0 }]}
         onLoad={handleImageLoad}
