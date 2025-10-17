@@ -1,4 +1,4 @@
-import { Fonts } from "@/constants/Fonts";
+import { Fonts } from "@/src/constants/Fonts";
 import { useEffect, useRef, useState } from "react";
 import { Animated, Image, StyleSheet, Text, View } from "react-native";
 

@@ -1,5 +1,5 @@
-import { AuthProvider, useAuth } from "@/contexts/AuthContext";
-import { QueryProvider } from "@/contexts/QueryProvider";
+import { AuthProvider, useAuth } from "@/src/contexts/AuthContext";
+import { QueryProvider } from "@/src/contexts/QueryProvider";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";

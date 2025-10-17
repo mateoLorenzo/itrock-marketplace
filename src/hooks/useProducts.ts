@@ -1,4 +1,4 @@
-import { Product } from "@/interfaces";
+import { Product } from "@/src/interfaces";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 const PRODUCTS_PER_PAGE = 10;

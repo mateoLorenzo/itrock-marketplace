@@ -1,9 +1,9 @@
-import { ProductImageWithSkeleton } from "@/components/ProductImageWithSkeleton";
-import { Fonts } from "@/constants/Fonts";
-import { useAuth } from "@/contexts/AuthContext";
-import { useScroll } from "@/contexts/ScrollContext";
-import { useProducts } from "@/hooks/useProducts";
-import { Product } from "@/interfaces";
+import { ProductImageWithSkeleton } from "@/src/components/ProductImageWithSkeleton";
+import { Fonts } from "@/src/constants/Fonts";
+import { useAuth } from "@/src/contexts/AuthContext";
+import { useScroll } from "@/src/contexts/ScrollContext";
+import { useProducts } from "@/src/hooks/useProducts";
+import { Product } from "@/src/interfaces";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React, { useEffect, useRef } from "react";

@@ -3,9 +3,9 @@ import {
   HomeInactive,
   ProductsActive,
   ProductsInactive,
-} from "@/components/Icon";
-import { Fonts } from "@/constants/Fonts";
-import { ScrollProvider, useScroll } from "@/contexts/ScrollContext";
+} from "@/src/components/Icon";
+import { Fonts } from "@/src/constants/Fonts";
+import { ScrollProvider, useScroll } from "@/src/contexts/ScrollContext";
 import { BlurView } from "expo-blur";
 import { Tabs, usePathname, useRouter } from "expo-router";
 import React from "react";

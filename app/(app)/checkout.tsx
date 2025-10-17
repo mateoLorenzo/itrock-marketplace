@@ -1,5 +1,5 @@
-import { Amex, ArrowBack, Card, Mastercard, Visa } from "@/components/Icon";
-import { Fonts } from "@/constants/Fonts";
+import { Amex, ArrowBack, Card, Mastercard, Visa } from "@/src/components/Icon";
+import { Fonts } from "@/src/constants/Fonts";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React, { useRef, useState } from "react";

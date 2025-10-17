@@ -1,5 +1,5 @@
-import { Fonts } from "@/constants/Fonts";
-import { useAuth } from "@/contexts/AuthContext";
+import { Fonts } from "@/src/constants/Fonts";
+import { useAuth } from "@/src/contexts/AuthContext";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";

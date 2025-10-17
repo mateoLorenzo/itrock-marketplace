@@ -1,9 +1,9 @@
 import reviewsData from "@/assets/feed.json";
-import { AvatarWithSkeleton } from "@/components/AvatarWithSkeleton";
-import { Fonts } from "@/constants/Fonts";
-import { useAuth } from "@/contexts/AuthContext";
-import { useScroll } from "@/contexts/ScrollContext";
-import { Review } from "@/interfaces";
+import { AvatarWithSkeleton } from "@/src/components/AvatarWithSkeleton";
+import { Fonts } from "@/src/constants/Fonts";
+import { useAuth } from "@/src/contexts/AuthContext";
+import { useScroll } from "@/src/contexts/ScrollContext";
+import { Review } from "@/src/interfaces";
 import { Ionicons } from "@expo/vector-icons";
 import { FlashList } from "@shopify/flash-list";
 import { useRouter } from "expo-router";
