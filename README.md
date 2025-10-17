@@ -3,9 +3,13 @@
 # ITRock Mobile Challenge - Mateo Lorenzo
 
 <div align="center">
-  
-  https://github.com/user-attachments/assets/38744b1c-e3a7-43dc-b5c2-8ebcb7971f1a
-  
+
+
+
+https://github.com/user-attachments/assets/d2db9e80-ab86-488c-9b9f-0ee5c1b5bc5e
+
+
+
 </div>
 
 
