@@ -1,50 +1,83 @@
-# Welcome to your Expo app 👋
+# 📱 ITRock Mobile Marketplace Challenge
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicación móvil desarrollada con React Native y Expo. Incluye autenticación, feed de reseñas, catálogo de productos con paginación infinita y pantalla de checkout.
 
-## Get started
+## ✨ Características
 
-1. Install dependencies
+- Autenticación persistente con AsyncStorage
+- Feed de reseñas con paginación (source: mock local)
+- Catálogo de productos con infinite scroll (source: Platzi Fake Store API)
+- Formulario de pago con validación de tarjetas
+- Skeleton loaders para mejor UX
+- Navegación con tabs y efectos visuales
 
-   ```bash
-   npm install
-   ```
+## 🛠️ Stack Tecnológico
 
-2. Start the app
+- **React Native** 0.81.4 + **Expo SDK** ~54.0.13
+- **TypeScript** ~5.9.2
+- **Expo Router** - Navegación file-based
+- **TanStack Query** - Manejo de datos y cache
+- **Context API + useReducer** - Estado global
+- **AsyncStorage** - Persistencia local
+- **FlashList** - Listas optimizadas
+- **React Native Reanimated** - Animaciones de alto rendimiento
 
-   ```bash
-   npx expo start
-   ```
+## 🚀 Instalación y Ejecución
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### 1. Instalar dependencias
 
 ```bash
-npm run reset-project
+npm expo install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Ejecutar en emuladores
 
-## Learn more
+**Android:**
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+npm run android
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+**iOS (solo macOS):**
 
-## Join the community
+```bash
+npm run ios
+```
 
-Join our community of developers creating universal apps.
+### 3. Correr la app en dispositivos fisicos
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+npm start
+```
+
+Escanear el codigo QR con la app de **Expo Go** ([Android](https://play.google.com/store/apps/details?id=host.exp.exponent) | [iOS](https://apps.apple.com/app/expo-go/id982107779))
+
+## 📁 Estructura del Proyecto
+
+
+```
+itrock-marketplace/
+├── app/                   # Expo Router (file-based routing)
+│   ├── (app)/             # Rutas protegidas (requiere auth)
+│   │   ├── (tabs)/        # Tab navigator (home, products)
+│   │   └── checkout.tsx   # Pantalla de pago
+│   └── auth/              # Rutas públicas (sign-in)
+├── src/                   # Código fuente
+│   ├── components/        # Componentes reutilizables
+│   ├── contexts/          # Context providers (Auth, Query, Scroll)
+│   ├── hooks/             # Custom hooks (useProducts)
+│   ├── interfaces/        # TypeScript types
+│   ├── types/             # Type declarations
+│   └── constants/         # Constantes (Fonts)
+└── assets/                # Fonts, icons, images, mock data
+```
+
+
+## 📝 Scripts Disponibles
+
+```bash
+npm start          # Inicia Expo
+npm run android    # Abre app en Android
+npm run ios        # Abre app en iOS
+```
+
