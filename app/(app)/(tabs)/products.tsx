@@ -83,13 +83,13 @@ const ProductsScreen = () => {
 
   const handleLogout = async () => {
     try {
-      Alert.alert("Logout", "Are you sure you want to logout?", [
+      Alert.alert("Cerrar sesión", "¿Seguro que desea cerrar sesión?", [
         {
-          text: "Cancel",
+          text: "Cancelar",
           style: "cancel",
         },
         {
-          text: "Logout",
+          text: "Cerrar sesión",
           style: "destructive",
           onPress: async () => {
             await logout();
