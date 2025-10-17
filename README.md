@@ -1,6 +1,17 @@
-# 📱 ITRock Mobile Marketplace Challenge
+
+
+# ITRock Mobile Challenge - Mateo Lorenzo
+
+<div align="center">
+  
+  https://github.com/user-attachments/assets/38744b1c-e3a7-43dc-b5c2-8ebcb7971f1a
+</div>
+
+
+# 📱 Sobre el proyecto
 
 Aplicación móvil desarrollada con React Native y Expo. Incluye autenticación, feed de reseñas, catálogo de productos con paginación infinita y pantalla de checkout.
+
 
 ## ✨ Características
 
@@ -19,7 +30,6 @@ Aplicación móvil desarrollada con React Native y Expo. Incluye autenticación,
 - **TanStack Query** - Manejo de datos y cache
 - **Context API + useReducer** - Estado global
 - **AsyncStorage** - Persistencia local
-- **FlashList** - Listas optimizadas
 - **React Native Reanimated** - Animaciones de alto rendimiento
 
 ## 🚀 Instalación y Ejecución
