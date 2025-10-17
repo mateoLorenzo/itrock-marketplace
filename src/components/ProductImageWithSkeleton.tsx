@@ -1,5 +1,6 @@
+import { Image } from "expo-image";
 import { useEffect, useRef, useState } from "react";
-import { Animated, Image, StyleSheet, View } from "react-native";
+import { Animated, StyleSheet, View } from "react-native";
 
 export const ProductImageWithSkeleton = ({
   imageUrl,
@@ -8,17 +9,7 @@ export const ProductImageWithSkeleton = ({
 }) => {
   const [isImageLoading, setIsImageLoading] = useState(true);
   const [hasImageError, setHasImageError] = useState(false);
-  const [currentUrl, setCurrentUrl] = useState(imageUrl);
   const skeletonOpacity = useRef(new Animated.Value(0.3)).current;
-
-  // reset loading state when url changes
-  useEffect(() => {
-    if (currentUrl !== imageUrl) {
-      setIsImageLoading(true);
-      setHasImageError(false);
-      setCurrentUrl(imageUrl);
-    }
-  }, [imageUrl, currentUrl]);
 
   useEffect(() => {
     if (isImageLoading && imageUrl) {
@@ -66,12 +57,13 @@ export const ProductImageWithSkeleton = ({
         />
       )}
       <Image
-        key={imageUrl}
         source={{ uri: imageUrl }}
-        style={[styles.productImage, isImageLoading && { opacity: 0 }]}
+        style={styles.productImage}
+        contentFit="cover"
+        transition={200}
+        cachePolicy="memory-disk"
         onLoad={handleImageLoad}
         onError={handleImageError}
-        resizeMode="cover"
       />
     </View>
   );

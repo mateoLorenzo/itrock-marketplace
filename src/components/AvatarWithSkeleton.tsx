@@ -1,6 +1,7 @@
 import { Fonts } from "@/src/constants/Fonts";
+import { Image } from "expo-image";
 import { useEffect, useRef, useState } from "react";
-import { Animated, Image, StyleSheet, Text, View } from "react-native";
+import { Animated, StyleSheet, Text, View } from "react-native";
 
 const getInitials = (fullName: string) => {
   return fullName
@@ -20,17 +21,7 @@ export const AvatarWithSkeleton = ({
 }) => {
   const [isImageLoading, setIsImageLoading] = useState(true);
   const [hasImageError, setHasImageError] = useState(false);
-  const [currentUrl, setCurrentUrl] = useState(avatarUrl);
   const skeletonOpacity = useRef(new Animated.Value(0.3)).current;
-
-  // reset loading state when url changes
-  useEffect(() => {
-    if (currentUrl !== avatarUrl) {
-      setIsImageLoading(true);
-      setHasImageError(false);
-      setCurrentUrl(avatarUrl);
-    }
-  }, [avatarUrl, currentUrl]);
 
   useEffect(() => {
     if (isImageLoading && avatarUrl) {
@@ -78,9 +69,11 @@ export const AvatarWithSkeleton = ({
         />
       )}
       <Image
-        key={avatarUrl}
         source={{ uri: avatarUrl }}
-        style={[styles.avatarImage, isImageLoading && { opacity: 0 }]}
+        style={styles.avatarImage}
+        contentFit="cover"
+        transition={200}
+        cachePolicy="memory-disk"
         onLoad={handleImageLoad}
         onError={handleImageError}
       />
