@@ -12,7 +12,6 @@ import {
   ActivityIndicator,
   Alert,
   Dimensions,
-  FlatList,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -25,7 +24,7 @@ const HomeScreen = () => {
   const { state, logout } = useAuth();
   const { top, bottom } = useSafeAreaInsets();
   const tabBarHeight = bottom + 80;
-  const flatListRef = useRef<FlatList>(null);
+  const flashListRef = useRef<any>(null);
   const { scrollToTopRef } = useScroll();
 
   const [displayedReviews, setDisplayedReviews] = useState<Review[]>([]);
@@ -73,7 +72,7 @@ const HomeScreen = () => {
   useEffect(() => {
     const ref = scrollToTopRef.current;
     ref.home = () => {
-      flatListRef.current?.scrollToOffset({ offset: 0, animated: true });
+      flashListRef.current?.scrollToOffset({ offset: 0, animated: true });
     };
 
     return () => {
@@ -184,11 +183,11 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <FlashList
+        ref={flashListRef}
         data={displayedReviews}
         ListHeaderComponent={renderListHeader}
         renderItem={renderListItem}
         keyExtractor={(item) => item.id}
-        style={styles.reviewsContainer}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.flatListContent}
         ItemSeparatorComponent={() => <View style={styles.reviewSeparator} />}
@@ -265,9 +264,6 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     width: Dimensions.get("window").width,
     right: 20,
-  },
-  reviewsContainer: {
-    flex: 1,
   },
   flatListContent: {
     paddingHorizontal: 20,
