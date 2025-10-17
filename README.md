@@ -5,6 +5,7 @@
 <div align="center">
   
   https://github.com/user-attachments/assets/38744b1c-e3a7-43dc-b5c2-8ebcb7971f1a
+  
 </div>
 
 
@@ -34,13 +35,24 @@ Aplicación móvil desarrollada con React Native y Expo. Incluye autenticación,
 
 ## 🚀 Instalación y Ejecución
 
-### 1. Instalar dependencias
-
+### 1. Usar version de node correcta (v20.19.4)
 ```bash
-npm expo install
+nvm install
 ```
 
-### 2. Ejecutar en emuladores
+### 2. Actualizar expo a la ultima version
+
+```bash
+npm install expo
+```
+
+### 3. Instalar dependencias
+
+```bash
+npx expo install
+```
+
+### 4. Ejecutar en emuladores
 
 **Android:**
 
@@ -54,7 +66,7 @@ npm run android
 npm run ios
 ```
 
-### 3. Correr la app en dispositivos fisicos
+### 5. Correr la app en dispositivos fisicos
 
 ```bash
 npm start
@@ -76,7 +88,7 @@ itrock-marketplace/
 │   ├── components/        # Componentes reutilizables
 │   ├── contexts/          # Context providers (Auth, Query, Scroll)
 │   ├── hooks/             # Custom hooks (useProducts)
-│   ├── interfaces/        # TypeScript types
+│   ├── interfaces/        # TypeScript interfaces
 │   ├── types/             # Type declarations
 │   └── constants/         # Constantes (Fonts)
 └── assets/                # Fonts, icons, images, mock data
