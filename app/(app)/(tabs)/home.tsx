@@ -181,14 +181,16 @@ const HomeScreen = () => {
         data={displayedReviews}
         ListHeaderComponent={renderListHeader}
         renderItem={renderListItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) =>
+          item.id + Math.random().toString(36).substring(2, 15)
+        }
         style={styles.reviewsContainer}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.flatListContent}
         ItemSeparatorComponent={() => <View style={styles.reviewSeparator} />}
         ListFooterComponent={renderFooter}
         onEndReached={loadMoreReviews}
-        onEndReachedThreshold={0.8}
+        onEndReachedThreshold={1}
       />
     </View>
   );
