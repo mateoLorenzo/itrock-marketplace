@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
     height: 30,
   },
   productCardContainer: {
-    flex: 1,
+    width: "48%",
   },
   productCard: {
     backgroundColor: "#F7F7F5",
