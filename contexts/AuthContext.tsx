@@ -112,12 +112,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
 export const useAuth = (): AuthContextType => {
   const context = useContext(AuthContext);
-  if (context) {
-    return context;
+  if (context === undefined) {
+    return {
+      state: initialState,
+      login: async () => {},
+      logout: async () => {},
+    };
   }
-  return {
-    state: initialState,
-    login: async () => {},
-    logout: async () => {},
-  };
+  return context;
 };

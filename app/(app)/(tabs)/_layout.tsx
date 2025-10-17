@@ -82,7 +82,7 @@ function TabLayoutContent() {
       <Tabs.Screen
         name="home"
         options={{
-          title: "Inicio",
+          title: "Feed",
           tabBarLabel: ({ focused, children }) => (
             <Text
               style={{

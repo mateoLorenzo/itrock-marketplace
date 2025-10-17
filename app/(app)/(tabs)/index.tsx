@@ -4,7 +4,7 @@ import React from "react";
 
 const Index = () => {
   const { state } = useAuth();
-  return !state?.isAuthenticated ? (
+  return state?.isAuthenticated ? (
     <Redirect href="/home" />
   ) : (
     <Redirect href="/auth/sign-in" />

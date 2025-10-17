@@ -1,4 +1,4 @@
-import { AuthProvider } from "@/contexts/AuthContext";
+import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import { QueryProvider } from "@/contexts/QueryProvider";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
@@ -7,6 +7,32 @@ import { useEffect } from "react";
 import { Platform } from "react-native";
 
 SplashScreen.preventAutoHideAsync();
+
+function NavigationContent() {
+  const { state } = useAuth();
+
+  if (state.isLoading) {
+    return null;
+  }
+
+  return (
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Protected guard={!state.isAuthenticated}>
+        <Stack.Screen
+          name="auth"
+          options={{
+            animation: Platform.OS === "ios" ? "ios_from_left" : "fade",
+            animationDuration: 400,
+          }}
+        />
+      </Stack.Protected>
+
+      <Stack.Protected guard={state.isAuthenticated}>
+        <Stack.Screen name="(app)" />
+      </Stack.Protected>
+    </Stack>
+  );
+}
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -29,17 +55,7 @@ export default function RootLayout() {
   return (
     <QueryProvider>
       <AuthProvider>
-        <Stack>
-          <Stack.Screen
-            name="auth"
-            options={{
-              headerShown: false,
-              animation: Platform.OS === "ios" ? "ios_from_left" : "fade",
-              animationDuration: 400,
-            }}
-          />
-          <Stack.Screen name="(app)" options={{ headerShown: false }} />
-        </Stack>
+        <NavigationContent />
       </AuthProvider>
     </QueryProvider>
   );
